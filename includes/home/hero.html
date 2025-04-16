@@ -1,0 +1,62 @@
+<section class="pb-16 h-screen min-h-screen sm:pb-20">
+    <div class="px-2 mx-auto max-w-2xl lg:max-w-7xl">
+        <div class="flex relative items-start justify-end flex-col h-[700px] gap-16">
+            <div class="inline-flex relative z-30 flex-col gap-8 items-start p-10 shadow w-auto text-white rounded-3xl backdrop-blur-lg translate-x-20 border border-white/50 translate-y-24 bg-[#090909]/[60%] ">
+                <div class="flex flex-col gap-4 items-start max-w-2xl sm:gap-5">
+                    <p class="font-medium tracking-wide uppercase text-[#d6d3cf]">Located in the center of it all</p>
+                    
+                    <h1 x-data="{
+                        startingAnimation: { opacity: 0, y: 50 },
+                        endingAnimation: { opacity: 1, y: 0, stagger: 0.02, duration: 0.7, ease: 'back' },
+                        addCNDScript: false,
+                        splitCharactersIntoSpans(element) {
+                            text = element.textContent;
+                            modifiedHTML = [];
+                            for (var i = 0; i < text.length; i++) {
+                                attributes = '';
+                                codeBefore = '';
+                                if(text[i].trim()){ attributes = 'class=\'inline-block\''; }
+                                if(text[i-1] == '&'){ codeBefore = '<br class=\'block xl:hidden\' />'; }
+                                if(text[i] == 'T' || text[i] == 'L'){ codeBefore = '<br class=\'hidden xl:block\' />'; }
+                                modifiedHTML.push(codeBefore + '<span ' + attributes + '>' + text[i] + '</span>');
+                            }
+                            element.innerHTML = modifiedHTML.join('');
+                        },
+        
+                        addScriptToHead(url) {
+                            script = document.createElement('script');
+                            script.src = url;
+                            document.head.appendChild(script);
+                        },
+                        animateText() {
+                            $el.classList.remove('invisible');
+                            gsap.fromTo($el.children, this.startingAnimation, this.endingAnimation);
+                        }
+                    }" x-init="
+                        splitCharactersIntoSpans($el);
+                        gsapInterval2 = setInterval(function(){
+                            if(typeof gsap !== 'undefined'){
+                                {{-- animateText(); --}}
+                                clearInterval(gsapInterval2);
+                            }
+                        }, 5);
+                    " oncontextmenu="alert('ok')" @animate-start.window="animateText()" class="text-[30px] leading-[40px] font-extrabold invisible xl:text-left text-left sm:text-center custom-font sm:text-[55px] sm:leading-[65px] md:text-[70px] md:leading-[80px] lg:text-[90px] lg:leading-[100px]">
+                    An Alpine & Tailwind UI Library
+                </h1>
+
+                    <h1 class="text-6xl font-medium tracking-tight text-white crimson">
+                        Student Living in Davis, CA
+                        
+                    </h1>
+                    <p class="text-lg tracking-tight text-[#f9f9ff] dark:text-primary-200/70 sm:text-xl">
+                        Student living, minutes from downtown Davis and UC Davis, Redwood Tree offers a quiet and comfortable lifestyle in a beautifully landscaped setting.
+                    </p>
+                </div>
+                <a href="/pricing" class="inline-flex justify-center items-center px-5 py-3 text-base font-medium text-white rounded-full border border-transparent transition bg-primary-600 dark:bg-primary-400 hover:bg-primary-700 dark:hover:bg-primary-300 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400 dark:text-primary-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
+                    Check Availability
+                </a>
+            </div>
+            <img class="object-cover absolute z-20 w-full h-full rounded-3xl" width="1280" height="640" src="/assets/images/photos/living-room-01.png" alt="Hero picture" />
+        </div>
+    </div>
+</section>

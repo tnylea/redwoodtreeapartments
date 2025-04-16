@@ -1,0 +1,34 @@
+
+<header class="absolute z-[99] w-full h-auto transition pt-5">
+    
+    <div class="flex relative z-30 justify-between items-center px-6 py-4 mx-auto max-w-2xl h-24 sm:py-6 lg:max-w-6xl lg:px-8">
+        <!-- Brand logo -->
+        <div class="flex">
+            <a href="/" class="relative rounded-md focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 focus-visible:outline focus-visible:outline-2">
+                <span class="sr-only">Redwood Tree Apartments</span>
+                <img class="w-auto h-7" width="65" height="40" :src="$store.theme.isDark ? '/assets/images/logo-white.png' : '/assets/images/logo.png'" alt="Redwood Tree Apartments Logo" />
+                <img x-show="!open" class="absolute top-0 w-auto h-7" width="65" height="40" src="/assets/images/logo-white.png" alt="Redwood Tree Apartments Logo" />
+            </a>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center space-x-2 sm:space-x-3">
+            <!-- Toggle theme mode -->
+            <span :class="{ '-translate-x-2' : open }">
+                <include src="button.html"></include>
+            </span>
+
+            <!-- Toggle menu -->
+            <button type="button" class="inline-flex flex-shrink-0 justify-center items-center w-14 h-14 rounded-full transition text-primary-950 dark:text-primary-200 hover:bg-primary-500/10 dark:hover:bg-primary-400/10 ring-primary-950 focus:outline-none focus-visible:ring-2" @click="open = !open" @mousedown="if (open) $event.preventDefault()" aria-controls="website-menu" aria-expanded="false" :aria-expanded="open.toString()">
+              <span class="sr-only">Toggle menu</span>
+              <svg x-cloak class="w-8 h-8" :class="{ 'hidden': open, 'block': !(open) }" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 8H5V10H19V8ZM19 14H5V16H19V14Z"></path>
+              </svg>
+              <svg x-cloak class="mr-3 w-8 h-8" :class="{ 'block': open, 'hidden': !(open) }" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"></path>
+              </svg>
+          </button>
+          
+        </div>
+    </div>
+</header>

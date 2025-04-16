@@ -1,0 +1,20 @@
+<section class="py-16 sm:py-20">
+  <div class="max-w-2xl px-6 mx-auto lg:max-w-7xl lg:px-8">
+    <div class="space-y-12 sm:space-8">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Meet our team</h2>
+      <ul role="list" class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <ForEach collection="team">
+            <li class="px-6 py-8 border border-primary-900/10 dark:border-primary-300/10 rounded-3xl">
+              <div class="space-y-6">
+                <img class="w-16 h-auto mx-auto rounded-full" src="{team.image}" alt="{team.name}" />
+                <div class="text-center">
+                  <h3 class="text-lg font-medium">{team.name}</h3>
+                  <p class="text-base text-primary-950/70 dark:text-primary-200/70">{team.job}</p>
+                </div>
+              </div>
+            </li>
+          </ForEach>
+      </ul>
+    </div>
+  </div>
+</section>

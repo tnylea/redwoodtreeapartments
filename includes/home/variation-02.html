@@ -1,0 +1,154 @@
+<div x-data="{
+    activities: [
+        {
+            title: 'Bathroom', 
+            heading: 'All the essentials',
+            description: 'Every bathroom has a large shower, sink, and toilet.',
+            image: '/assets/images/photos/bathroom-01.jpg'
+        },
+        {
+            title: 'Kitchen', 
+            heading: 'Perfect for cooking and entertaining',
+            description: 'Every kitchen has a stove, sink, and refrigerator.',
+            image: '/assets/images/photos/kitchen-01.png'},
+        {
+            title: 'Living Room', 
+            heading: 'Spacious Living Areas',
+            description: 'Every floor plan has a spacious living area, perfect for entertaining guests or just relaxing after a long day.',
+            image: '/assets/images/photos/living-room-01.png'
+        },
+        {
+            title: 'Exterior', 
+            heading: 'Beautiful exteriors',
+            description: 'Every floor plan has a spacious living area, perfect for entertaining guests or just relaxing after a long day.',
+            image: '/assets/images/photos/exterior-stairs.jpg'
+        },
+        {
+            title: 'Bedroom', 
+            heading: 'Rest and relaxation',
+            description: 'Every bedroom has a large bed, dresser, and closet.',
+            image: '/assets/images/photos/bedroom-01.png'
+        }
+        
+                ],
+    activeIndex: 2,
+    autoPlay: true,
+    autoPlayInterval: null,
+    autoPlayTimeout: 4000,
+    autoPlayTimeRemaining: 0,
+    finishedAnimation: true,
+    isPaused: true,
+    
+    percent: 0,
+    percentInterval: null,
+    resetActivityProgress() {
+        let activityProgresses = document.querySelectorAll('.activity-progress');
+        for(let i=0; i<activityProgresses.length; i++) {
+            activityProgresses[i].dispatchEvent(new CustomEvent('reset'));
+        }
+    },
+    pause(){
+        clearInterval(this.percentInterval);
+    },
+    checkForReset(index){
+        if(this.activeIndex != index){
+            this.percent = 0;
+        }
+    },
+    next(){
+        this.percent = 0;
+        if(this.activeIndex+1 > this.activities.length-1){
+            this.activeIndex = 0;
+        } else {
+            this.activeIndex += 1;
+        }
+    },
+    previous() {
+        this.percent = 0;
+        if(this.activeIndex-1 <= 0){
+            this.activeIndex = this.activities.length-1;
+        } else {
+            this.activeIndex -= 1;
+        }
+    },
+    play(){
+        let that = this;
+        clearInterval(this.percentInterval);
+
+        this.percentInterval = setInterval(function(){ 
+            that.percent += 1 
+            currentPercent = that.percent;
+        }, 40);
+    }
+}" 
+x-init="
+    setTimeout(function(){
+        document.getElementById('progress-' + activeIndex).dispatchEvent(new CustomEvent('play'));
+        play();
+    }, 1);
+
+    $watch('percent', (value) => {
+        if(value >= 100){
+            next();
+            play();
+        }
+    });
+
+    $watch('activeIndex', (value) => {
+        finishedAnimation = false;
+        setTimeout(function(){
+            finishedAnimation = true;
+        }, 350);
+    })
+"
+@start-slider.window="if(isPaused){ console.log('playing...'); play(); activeIndex=0; document.getElementById('progress-' + activeIndex).dispatchEvent(new CustomEvent('play')); isPaused = false; }"
+@mouseenter="pause()" @mouseleave="play()" class="flex relative items-center my-3 md:gap-3 h-[380px] lg:h-[620px] w-full" :key="index">
+    
+    <template x-for="(activity, index) in activities">
+        
+        <div 
+            :class="{ 'w-0 md:w-2/12' : activeIndex != index, 'w-full md:w-full' : activeIndex == index, 'md:rounded-r-md' : index == 0, 'md:rounded-md' : index != 0 && index != (activities.length-1), 'md:rounded-l-md' : index == (activities.length-1) }"
+            @mouseenter="checkForReset(index); activeIndex = index;"
+            class="h-[380px] lg:h-[620px] bg-gray-100 relative ease-out duration-300 grid-flow-col">
+            <img :src="activity.image"
+                :class="{ 'md:rounded-r-md' : index == 0, 'md:rounded-md' : index != 0 && index != (activities.length-1), 'md:rounded-l-md' : index == (activities.length-1) }"
+                class="object-cover w-full h-full" alt="Fly off the blob activity" />
+            <div x-show="!activity.active" :class="{ 'md:rounded-r-md' : index == 0, 'md:rounded-md' : index != 0 && index != (activities.length-1), 'md:rounded-l-md' : index == (activities.length-1), 'bg-black/50' : activeIndex != index }" class="absolute inset-0 w-full h-full"></div>
+        
+            <div x-show="activeIndex == index" class="flex overflow-hidden absolute top-0 right-0 items-center mt-3 mr-3 w-auto h-9 text-white bg-[#090909]/[30%] rounded-full border shadow-xl backdrop-blur-sm border-white/30">
+                <button @click="previous()" class="block relative px-1.5 h-full border-r md:hidden border-gray-400/30 text-white/60 hover:text-white/90 hover:bg-white/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" /></svg>
+                </button>
+                <div class="flex items-center px-1 space-x-1">
+                    <div :id="'progress-' + index" 
+                        class="w-3 h-3 rounded-full opacity-80 translate-x-1.5 activity-progress" :style="'background:conic-gradient(white ' + percent + '%, rgba(255, 255, 255, 0.4) 0);'">
+                        </div>
+                    <p x-text="activity.title" class="flex items-center px-2.5 h-full text-xs font-medium"></p>
+                    
+                    
+                </div>
+                <button @click="next()" class="block relative px-1.5 h-full border-l md:hidden border-gray-400/30 text-white/60 hover:text-white/90 hover:bg-white/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" /></svg>
+                </button>
+
+                
+
+            </div>
+
+            <div x-show="activeIndex == index" class="overflow-hidden absolute bottom-0 left-0 w-full duration-300 ease-out">
+                <div :class="{ 'opacity-0 translate-y-10' : activeIndex != index, 'opacity-100 translate-y-0' : activeIndex == index }" class="px-10 pb-12 w-full bg-gradient-to-b from-transparent to-[#09090f] rounded-b-xl duration-300 ease-out">
+                    <div :class="{ 'opacity-0 translate-y-10' : !finishedAnimation || activeIndex != index, 'opacity-100 translate-y-0' : finishedAnimation && activeIndex == index }" class="duration-300 ease-out">
+                    <h1 class="text-5xl font-medium tracking-tight text-white crimson" x-text="activity.heading"></h1>
+                    <p class="text-lg mb-3 mt-1 tracking-tight text-[#f9f9ff] dark:text-primary-200/70 sm:text-lg" x-text="activity.description"></p>
+                <a href="/pricing" class="inline-flex justify-center items-center px-4 py-2 text-base font-medium text-white bg-transparent rounded-full border-2 border border-transparent border-white transition">
+                    Check Our Availability
+                </a>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </template>
+    
+    
+</div>
