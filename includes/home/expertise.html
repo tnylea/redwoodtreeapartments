@@ -18,7 +18,7 @@
                   x-bind:class="{ 'bg-primary-500/10 dark:bg-primary-400/10': isOpen }"
                 >
                 <dt class="text-lg border-b transition" x-cloak x-bind:class="{ 'border-transparent': isOpen || isNextOpen, 'border-primary-900/10 dark:border-primary-300/10': !(isOpen || isNextOpen) }">
-                  <button type="button" class="block py-6 w-full text-left transition group focus-visible:outline-none" aria-controls={features.id} x-on:click="toggle(id)" aria-expanded="false" x-bind:aria-expanded="isOpen.toString()">
+                  <button type="button" class="block py-6 w-full text-left transition group focus-visible:outline-hidden" aria-controls={features.id} x-on:click="toggle(id)" aria-expanded="false" x-bind:aria-expanded="isOpen.toString()">
                     <div class="flex justify-between items-center rounded-3xl group-focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2">
                       <span class="font-medium">{features.name}</span>
                       <span class="flex items-center ml-6 h-7">

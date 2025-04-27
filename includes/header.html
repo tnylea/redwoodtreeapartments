@@ -1,13 +1,27 @@
 
-<header class="absolute z-[99] w-full h-auto transition pt-5">
+<div x-data="{ isSticky: false }" class="top-0 w-full z-99" :class="{ 'absolute': !isSticky, 'fixed': isSticky }" x-cloak>
+<header
+x-init="
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 15) {
+            isSticky = true;
+        } else {
+            isSticky = false;
+        }
+    });
+"
+class="top-0 w-full h-auto border-b transition duration-300 ease-out z-99" :class="{ 'sticky': isSticky, 'bg-[#191929]/[60%] backdrop-blur-xl border-white/[8%]' : isSticky && !open, 'border-b-transparent': isSticky && open, 'pt-5 border-b-transparent': !isSticky }">
     
+<div class="absolute top-0 left-0 z-50 w-full h-2">
+    <include src="coloredbar.html"></include>
+</div>
     <div class="flex relative z-30 justify-between items-center px-6 py-4 mx-auto max-w-6xl h-24 sm:py-6 lg:px-8">
         <!-- Brand logo -->
         <div class="flex">
             <a href="/" class="relative rounded-md focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 focus-visible:outline focus-visible:outline-2">
                 <span class="sr-only">Redwood Tree Apartments</span>
-                <img :class="{ 'opacity-0' : !open }" class="w-auto h-7 opacity-100 duration-300 ease-out starting:opacity-0" src="/assets/images/logo.png" alt="Redwood Tree Apartments Logo" />
-                <img :class="{ 'opacity-0' : open }" class="absolute top-0 w-auto h-7 opacity-100 duration-300 ease-out starting:opacity-0" src="/assets/images/logo-white.png" alt="Redwood Tree Apartments Logo" />
+                <img :class="{ 'opacity-0' : !open }" class="w-auto h-7 opacity-100 duration-300 ease-in-out delay-300 translate-y-0 starting:opacity-0 starting:translate-y-1" src="/assets/images/logo.png" alt="Redwood Tree Apartments Logo" />
+                <img :class="{ 'opacity-0' : open, 'opacity-100' : !open }" class="absolute top-0 w-auto h-7 duration-1000 ease-in-out translate-y-0 starting:duration-1000 starting:-translate-y-1 starting:opacity-0" src="/assets/images/logo-white.png" alt="Redwood Tree Apartments Logo" />
             </a>
         </div>
 
@@ -15,11 +29,11 @@
         <div class="flex items-center">
             <!-- Toggle theme mode -->
             <span>
-                <include src="button.html"></include>
+                <include src="button.html" text="Check Availability"></include>
             </span>
 
             <!-- Toggle menu -->
-            <button type="button" class="inline-flex flex-shrink-0 justify-center items-center w-14 h-14 rounded-full transition text-primary-950 dark:text-primary-200 hover:bg-primary-500/10 dark:hover:bg-primary-400/10 ring-primary-950 focus:outline-none focus-visible:ring-2" @click="open = !open" @mousedown="if (open) $event.preventDefault()" aria-controls="website-menu" aria-expanded="false" :aria-expanded="open.toString()">
+            <button type="button" class="inline-flex justify-center items-center w-14 h-14 rounded-full transition cursor-pointer shrink-0 text-primary-950 dark:text-primary-200 hover:bg-primary-500/10 dark:hover:bg-primary-400/10 ring-primary-950 focus:outline-hidden focus-visible:ring-2" @click="open = !open" @mousedown="if (open) $event.preventDefault()" aria-controls="website-menu" aria-expanded="false" :aria-expanded="open.toString()">
               <span class="sr-only">Toggle menu</span>
               <svg x-cloak class="w-6 h-6 text-white" :class="{ 'hidden': open, 'block': !(open) }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2 6.75A.75.75 0 0 1 2.75 6h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 6.75Zm0 6.5a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" /></svg>
               <svg x-cloak class="mr-0 w-6 h-6" :class="{ 'block': open, 'hidden': !(open) }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5"><path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" /></svg>
@@ -28,3 +42,4 @@
         </div>
     </div>
 </header>
+</div>

@@ -1,4 +1,7 @@
-<div :class="{ '-translate-y-full' : !open, 'translate-y-0' : open }" class="fixed top-0 left-0 z-50 pt-24 w-full h-screen bg-gray-50 duration-300 ease-out">
+<div :class="{ '-translate-y-full' : !open, 'translate-y-0' : open }" class="fixed top-0 left-0 z-50 pt-24 w-full h-screen bg-[#fffaf4] duration-300 ease-out">
+    <div :class="{ '-translate-y-full' : !open, 'translate-y-0' : open }" class="absolute top-0 left-0 z-50 w-full h-2 duration-300 ease-out delay-300">
+        <include src="coloredbar.html"></include>
+    </div>
     <div class="relative z-30 px-6 mx-auto max-w-2xl lg:max-w-6xl lg:px-8" id="website-menu" x-cloak x-show="open" x-collapse>
         <div class="grid grid-cols-1 gap-16 pt-6 pr-5 pb-12 lg:grid-cols-2 lg:pt-10">
             <div class="hidden overflow-hidden justify-center items-center rounded-3xl bg-primary-500/10 dark:bg-primary-400/10 lg:flex">
@@ -6,9 +9,9 @@
             </div>
 
         <!-- Navigation -->
-        <nav class="flex flex-col gap-1 divide-y divide-primary-900/10 dark:divide-primary-300/10">
+        <nav class="flex flex-col gap-1 divide-y divide-[#f8dfc0] dark:divide-primary-300/10">
             <ForEach collection="links">
-                <a href={links.href} class="inline-flex py-6 text-3xl font-medium tracking-tight transition text-primary-950 dark:text-primary-200 group focus-visible:outline-none sm:py-8 sm:text-4xl">
+                <a href={links.href} class="inline-flex py-6 text-3xl font-medium tracking-tight transition text-primary-950 dark:text-primary-200 group focus-visible:outline-hidden sm:py-8 sm:text-4xl">
                     <div class="flex flex-1 justify-between items-center rounded-3xl group-focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2">
                         <div class="flex gap-6 items-center">
                             <span class="text-xs">{links.ref}</span>
