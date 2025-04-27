@@ -102,20 +102,21 @@ x-init="
     })
 "
 @start-slider.window="if(isPaused){ console.log('playing...'); play(); activeIndex=0; document.getElementById('progress-' + activeIndex).dispatchEvent(new CustomEvent('play')); isPaused = false; }"
-@mouseenter="pause()" @mouseleave="play()" class="flex relative items-center my-3 md:gap-3 h-[380px] lg:h-[620px] w-full" :key="index">
+@mouseenter="pause()" @mouseleave="play()" class="flex relative items-center h-[380px] lg:h-[620px] w-full" :key="index">
     
     <template x-for="(activity, index) in activities">
         
         <div 
-            :class="{ 'w-0 md:w-2/12' : activeIndex != index, 'w-full md:w-full' : activeIndex == index, 'md:rounded-r-md' : index == 0, 'md:rounded-md' : index != 0 && index != (activities.length-1), 'md:rounded-l-md' : index == (activities.length-1) }"
+            :class="{ 'w-0 md:w-2/12' : activeIndex != index, 'w-full md:w-full' : activeIndex == index }"
             @mouseenter="checkForReset(index); activeIndex = index;"
             class="h-[380px] lg:h-[620px] bg-gray-100 relative ease-out duration-300 grid-flow-col">
             <img :src="activity.image"
-                :class="{ 'md:rounded-r-md' : index == 0, 'md:rounded-md' : index != 0 && index != (activities.length-1), 'md:rounded-l-md' : index == (activities.length-1) }"
                 class="object-cover w-full h-full" alt="Fly off the blob activity" />
-            <div x-show="!activity.active" :class="{ 'md:rounded-r-md' : index == 0, 'md:rounded-md' : index != 0 && index != (activities.length-1), 'md:rounded-l-md' : index == (activities.length-1), 'bg-black/50' : activeIndex != index }" class="absolute inset-0 w-full h-full"></div>
+
+                <div x-show="activeIndex == index" class="absolute w-full h-full bg-gradient-to-b from-[#191929]/30 via-transparent to-[#191929]/90 z-10 inset-0"></div>
+            <div x-show="!activity.active" :class="{ 'bg-black/50' : activeIndex != index }" class="absolute inset-0 w-full h-full"></div>
         
-            <div x-show="activeIndex == index" class="flex overflow-hidden absolute top-0 right-0 items-center mt-3 mr-3 w-auto h-9 text-white bg-[#090909]/[30%] rounded-full border shadow-xl backdrop-blur-sm border-white/30">
+            <div x-show="activeIndex == index" class="flex overflow-hidden absolute top-0 z-20 right-0 items-center mt-3 mr-3 w-auto h-9 text-white bg-[#090909]/[30%] rounded-full border shadow-xl backdrop-blur-sm border-white/30">
                 <button @click="previous()" class="block relative px-1.5 h-full border-r md:hidden border-gray-400/30 text-white/60 hover:text-white/90 hover:bg-white/10">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" /></svg>
                 </button>
@@ -135,8 +136,8 @@ x-init="
 
             </div>
 
-            <div x-show="activeIndex == index" class="overflow-hidden absolute bottom-0 left-0 w-full duration-300 ease-out">
-                <div :class="{ 'opacity-0 translate-y-10' : activeIndex != index, 'opacity-100 translate-y-0' : activeIndex == index }" class="px-10 pb-12 w-full bg-gradient-to-b from-transparent to-[#09090f] rounded-b-xl duration-300 ease-out">
+            <div x-show="activeIndex == index" class="overflow-hidden absolute bottom-0 left-0 z-20 w-full duration-300 ease-out">
+                <div :class="{ 'opacity-0 translate-y-10' : activeIndex != index, 'opacity-100 translate-y-0' : activeIndex == index }" class="px-10 pb-12 w-full duration-300 ease-out">
                     <div :class="{ 'opacity-0 translate-y-10' : !finishedAnimation || activeIndex != index, 'opacity-100 translate-y-0' : finishedAnimation && activeIndex == index }" class="duration-300 ease-out">
                     <h1 class="text-5xl font-medium tracking-tight text-white crimson" x-text="activity.heading"></h1>
                     <p class="text-lg mb-3 mt-1 tracking-tight text-[#f9f9ff] dark:text-primary-200/70 sm:text-lg" x-text="activity.description"></p>

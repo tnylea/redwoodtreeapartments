@@ -1,32 +1,28 @@
 
 <header class="absolute z-[99] w-full h-auto transition pt-5">
     
-    <div class="flex relative z-30 justify-between items-center px-6 py-4 mx-auto max-w-2xl h-24 sm:py-6 lg:max-w-6xl lg:px-8">
+    <div class="flex relative z-30 justify-between items-center px-6 py-4 mx-auto max-w-6xl h-24 sm:py-6 lg:px-8">
         <!-- Brand logo -->
         <div class="flex">
             <a href="/" class="relative rounded-md focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 focus-visible:outline focus-visible:outline-2">
                 <span class="sr-only">Redwood Tree Apartments</span>
-                <img class="w-auto h-7" width="65" height="40" :src="$store.theme.isDark ? '/assets/images/logo-white.png' : '/assets/images/logo.png'" alt="Redwood Tree Apartments Logo" />
-                <img x-show="!open" class="absolute top-0 w-auto h-7" width="65" height="40" src="/assets/images/logo-white.png" alt="Redwood Tree Apartments Logo" />
+                <img :class="{ 'opacity-0' : !open }" class="w-auto h-7 opacity-100 duration-300 ease-out starting:opacity-0" src="/assets/images/logo.png" alt="Redwood Tree Apartments Logo" />
+                <img :class="{ 'opacity-0' : open }" class="absolute top-0 w-auto h-7 opacity-100 duration-300 ease-out starting:opacity-0" src="/assets/images/logo-white.png" alt="Redwood Tree Apartments Logo" />
             </a>
         </div>
 
         <!-- Actions -->
-        <div class="flex items-center space-x-2 sm:space-x-3">
+        <div class="flex items-center">
             <!-- Toggle theme mode -->
-            <span :class="{ '-translate-x-2' : open }">
+            <span>
                 <include src="button.html"></include>
             </span>
 
             <!-- Toggle menu -->
             <button type="button" class="inline-flex flex-shrink-0 justify-center items-center w-14 h-14 rounded-full transition text-primary-950 dark:text-primary-200 hover:bg-primary-500/10 dark:hover:bg-primary-400/10 ring-primary-950 focus:outline-none focus-visible:ring-2" @click="open = !open" @mousedown="if (open) $event.preventDefault()" aria-controls="website-menu" aria-expanded="false" :aria-expanded="open.toString()">
               <span class="sr-only">Toggle menu</span>
-              <svg x-cloak class="w-8 h-8" :class="{ 'hidden': open, 'block': !(open) }" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M19 8H5V10H19V8ZM19 14H5V16H19V14Z"></path>
-              </svg>
-              <svg x-cloak class="mr-3 w-8 h-8" :class="{ 'block': open, 'hidden': !(open) }" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"></path>
-              </svg>
+              <svg x-cloak class="w-6 h-6 text-white" :class="{ 'hidden': open, 'block': !(open) }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2 6.75A.75.75 0 0 1 2.75 6h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 6.75Zm0 6.5a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" /></svg>
+              <svg x-cloak class="mr-0 w-6 h-6" :class="{ 'block': open, 'hidden': !(open) }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5"><path d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" /></svg>
           </button>
           
         </div>

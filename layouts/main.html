@@ -35,7 +35,15 @@ $watch('open', function(value){
     }
 })
 " class="overflow-x-hidden antialiased transition bg-primary-50 text-primary-950 dark:bg-primary-950 dark:text-primary-200">
-    <include src="header.html"></include>
+<header x-data="{ mobileMenu: false }" x-init="$watch('mobileMenu', value => {
+    if (value) {
+        window.mobileMenuOpen = true;
+    } else {
+        window.mobileMenuOpen = false;
+    }
+})" class="w-full h-auto">
+
+<include src="header.html"></include>
     <include src="menu.html"></include>
     {slot}
     <include src="footer.html"></include>
