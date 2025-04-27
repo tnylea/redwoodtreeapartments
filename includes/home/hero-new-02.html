@@ -2,11 +2,11 @@
 
 <div :class="{ 'z-10': !open, 'z-10': open }" class="flex overflow-hidden relative z-10 items-stretch w-screen h-screen">
     <div class="flex overflow-hidden items-stretch w-full h-full">
-        <div class="bg-linear-to-b from-[#191929]/30 to-[#191929]/90 w-full relative z-30 h-full flex flex-col justify-center items-start" :class="{ 'z-50': open, 'z-10': !open }">
+        <div class="bg-linear-to-b from-[#1E1929]/80 via-[#1E1929]/40 to-[#1E1929]/90 w-full relative z-30 h-full flex flex-col justify-center items-start" :class="{ 'z-50': open, 'z-10': !open }">
 
-            <div class="flex relative flex-col justify-center items-end pl-10 ml-0 w-1/2 h-full">
-                <div class="absolute inset-0 z-10 w-full h-full backdrop-blur-[8px] scale-125 rotate-6 -translate-x-20 bg-[#191929]/70"></div>
-            <div class="relative z-20 pl-8 w-full max-w-xl">
+            <div class="flex relative flex-col justify-center items-end ml-0 w-full lg:w-1/2 h-full">
+                <div class="absolute inset-0 z-10 w-1/2 lg:w-full h-full  scale-125 rotate-6 -translate-x-20 bg-gradient-to-l from-transparent via-[#1E1929]/90 to-[#1E1929]/100"></div>
+            <div class="relative z-20 pl-6 pr-6 lg:pr-0 lg:pl-8 w-full max-w-full lg:max-w-xl">
             <span class="inline-block mb-2.5 text-sm font-medium starting:opacity-0 opacity-100 duration-500 delay-200 ease-in tracking-tighter uppercase text-[#ef9478]">In the center of it all</span>
             <h1 x-data="{
                 startingAnimation: { opacity: 0, y: 50 },
@@ -37,7 +37,7 @@
                 <div class="p-2 w-auto"><a class="inline-block px-8 py-4 tracking-tighter text-white bg-[#b4644b] rounded-full border-2 border-[#b4644b] transition duration-300 hover:bg-[#a4543b]  focus:ring-4 focus:ring-green-500 focus:ring-opacity-40" href="#">Check Availability</a></div>
                 <div class="p-2 w-auto"><a class="inline-block px-8 py-4 tracking-tighter text-white rounded-full border-2 border-white transition duration-300  hover:bg-[#a4543b] focus:border-green-400 focus:border-opacity-40 hover:border-[#a4543b] focus:ring-4 focus:ring-green-400 focus:ring-opacity-40" href="#">Contact Us</a></div>
             </div>
-            <p class="text-lg text-white md:max-w-xs">The Perfect Home Base for UC Davis Students. Just minutes from downtown Davis and UC Davis.</p>
+            <p class="text-lg text-white max-w-xs">The Perfect Home Base for UC Davis Students. Just minutes from downtown Davis and UC Davis.</p>
         </div>
                 </div>
             </div>

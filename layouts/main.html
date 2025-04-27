@@ -17,6 +17,13 @@
     .crimson {
         font-family: "Crimson Text", serif;
       }
+      html, body {
+        scrollbar-gutter: stable;
+      }
+
+      html.menu-open {
+        overflow-y: scroll;
+      }
       
 </style>
 
@@ -30,8 +37,10 @@ $watch('open', function(value){
         // if we open scroll to the top of the page
         //window.scrollTo(0, 0);
         document.body.classList.add('overflow-hidden');
+        document.classList.add('menu-open');
     } else {
         document.body.classList.remove('overflow-hidden');
+        document.classList.remove('menu-open');
     }
 })
 " class="overflow-x-hidden antialiased transition bg-primary-50 text-primary-950 dark:bg-primary-950 dark:text-primary-200">
