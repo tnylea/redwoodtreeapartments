@@ -29,7 +29,7 @@
                     $el.classList.remove('invisible');
                     gsap.fromTo($el.children, this.startingAnimation, this.endingAnimation);
                 }
-            }" x-init="()=> { splitCharactersIntoSpans($el); animateText() }" oncontextmenu="alert('ok')" @animate-start.window="animateText()" class="invisible mb-12 max-w-sm text-6xl font-thin text-left text-white custom-font">
+            }" x-init="()=> { splitCharactersIntoSpans($el); animateText() }" oncontextmenu="alert('ok')" @animate-start.window="animateText()" class="invisible mb-12 max-w-sm text-5xl sm:text-6xl font-thin text-left text-white custom-font">
             Student Living in Davis, CA
         </h1>
         <div class="opacity-100 duration-500 delay-200 starting:-translate-y-2 starting:opacity-0">
