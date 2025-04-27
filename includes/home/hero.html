@@ -1,62 +1,50 @@
-<section class="pt-3 pb-16 h-screen min-h-screen sm:pb-20">
-    <div class="px-2 mx-auto max-w-2xl lg:max-w-7xl">
-        <div class="flex relative items-start justify-end flex-col h-[700px] gap-16">
-            <div class="inline-flex relative z-30 flex-col gap-8 items-start p-10 shadow-sm w-auto text-white rounded-3xl backdrop-blur-lg translate-x-20 border border-white/50 translate-y-24 bg-[#090909]/[60%] ">
-                <div class="flex flex-col gap-4 items-start max-w-2xl sm:gap-5">
-                    <p class="font-medium tracking-wide uppercase text-[#d6d3cf]">Located in the center of it all</p>
-                    
-                    <h1 x-data="{
-                        startingAnimation: { opacity: 0, y: 50 },
-                        endingAnimation: { opacity: 1, y: 0, stagger: 0.02, duration: 0.7, ease: 'back' },
-                        addCNDScript: false,
-                        splitCharactersIntoSpans(element) {
-                            text = element.textContent; 
-                            modifiedHTML = [];
-                            for (var i = 0; i < text.length; i++) {
-                                attributes = '';
-                                codeBefore = '';
-                                if(text[i].trim()){ attributes = 'class=\'inline-block\''; }
-                                if(text[i-1] == '&'){ codeBefore = '<br class=\'block xl:hidden\' />'; }
-                                if(text[i] == 'T' || text[i] == 'L'){ codeBefore = '<br class=\'hidden xl:block\' />'; }
-                                modifiedHTML.push(codeBefore + '<span ' + attributes + '>' + text[i] + '</span>');
-                            }
-                            element.innerHTML = modifiedHTML.join('');
-                        },
-        
-                        addScriptToHead(url) {
-                            script = document.createElement('script');
-                            script.src = url;
-                            document.head.appendChild(script);
-                        },
-                        animateText() {
-                            $el.classList.remove('invisible');
-                            gsap.fromTo($el.children, this.startingAnimation, this.endingAnimation);
-                        }
-                    }" x-init="
-                        splitCharactersIntoSpans($el);
-                        gsapInterval2 = setInterval(function(){
-                            if(typeof gsap !== 'undefined'){
-                                {{-- animateText(); --}}
-                                clearInterval(gsapInterval2);
-                            }
-                        }, 5);
-                    " oncontextmenu="alert('ok')" @animate-start.window="animateText()" class="text-[30px] leading-[40px] font-extrabold invisible xl:text-left text-left sm:text-center custom-font sm:text-[55px] sm:leading-[65px] md:text-[70px] md:leading-[80px] lg:text-[90px] lg:leading-[100px]">
-                    An Alpine & Tailwind UI Library
-                </h1>
 
-                    <h1 class="text-6xl font-medium tracking-tight text-white crimson">
-                        Student Living in Davis, CA
-                        
-                    </h1>
-                    <p class="text-lg tracking-tight text-[#f9f9ff] dark:text-primary-200/70 sm:text-xl">
-                        Student living, minutes from downtown Davis and UC Davis, Redwood Tree offers a quiet and comfortable lifestyle in a beautifully landscaped setting.
-                    </p>
-                </div>
-                <a href="/pricing" class="inline-flex justify-center items-center px-5 py-3 text-base font-medium text-white rounded-full border border-transparent transition bg-primary-600 dark:bg-primary-400 hover:bg-primary-700 dark:hover:bg-primary-300 focus-visible:outline-primary-600 dark:focus-visible:outline-primary-400 dark:text-primary-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
-                    Check Availability
-                </a>
+
+<div :class="{ 'z-10': !open, 'z-10': open }" class="flex overflow-hidden relative z-10 items-stretch w-screen h-screen">
+    <div class="flex overflow-hidden items-stretch w-full h-full">
+        <div class="bg-linear-to-b from-[#1E1929]/80 via-[#1E1929]/40 to-[#1E1929]/90 w-full relative z-30 h-full flex flex-col justify-center items-start" :class="{ 'z-50': open, 'z-10': !open }">
+
+            <div class="flex relative flex-col justify-center items-end ml-0 w-full lg:w-1/2 h-full">
+                <div class="absolute inset-0 z-10 w-1/2 lg:w-full h-full  scale-125 rotate-6 -translate-x-20 bg-gradient-to-l from-transparent via-[#1E1929]/90 to-[#1E1929]/100"></div>
+            <div class="relative z-20 pl-6 pr-6 lg:pr-0 lg:pl-8 w-full max-w-full lg:max-w-xl">
+            <span class="inline-block mb-2.5 text-sm font-medium starting:opacity-0 opacity-100 duration-500 delay-200 ease-in tracking-tighter uppercase text-[#ef9478]">In the center of it all</span>
+            <h1 x-data="{
+                startingAnimation: { opacity: 0, y: 50 },
+                endingAnimation: { opacity: 1, y: 0, stagger: 0.02, duration: 0.7, ease: 'back' },
+                splitCharactersIntoSpans(element) {
+                    text = element.textContent;
+                    modifiedHTML = [];
+                    for (var i = 0; i < text.length; i++) {
+                        attributes = '';
+                        codeBefore = '';
+                        if(text[i].trim()){ attributes = 'class=\'inline-block\''; }
+                        if(text[i-1] == 'g'){ codeBefore = '<br class=\'block xl:hidden\' />'; }
+                        if(text[i] == 'g'){ codeBefore = '<br class=\'hidden xl:block\' />'; }
+                        modifiedHTML.push('<span ' + attributes + '>' + text[i] + '</span>' + codeBefore);
+                    }
+                    element.innerHTML = modifiedHTML.join('');
+                },
+
+                animateText() {
+                    $el.classList.remove('invisible');
+                    gsap.fromTo($el.children, this.startingAnimation, this.endingAnimation);
+                }
+            }" x-init="()=> { splitCharactersIntoSpans($el); animateText() }" oncontextmenu="alert('ok')" @animate-start.window="animateText()" class="invisible mb-12 max-w-sm text-6xl font-thin text-left text-white custom-font">
+            Student Living in Davis, CA
+        </h1>
+        <div class="opacity-100 duration-500 delay-200 starting:-translate-y-2 starting:opacity-0">
+            <div class="flex flex-wrap -m-2 mb-12">
+                <div class="p-2 w-auto"><a class="inline-block px-8 py-4 tracking-tighter text-white bg-[#b4644b] rounded-full border-2 border-[#b4644b] transition duration-300 hover:bg-[#a4543b]  focus:ring-4 focus:ring-green-500 focus:ring-opacity-40" href="#">Check Availability</a></div>
+                <div class="p-2 w-auto"><a class="inline-block px-8 py-4 tracking-tighter text-white rounded-full border-2 border-white transition duration-300  hover:bg-[#a4543b] focus:border-green-400 focus:border-opacity-40 hover:border-[#a4543b] focus:ring-4 focus:ring-green-400 focus:ring-opacity-40" href="#">Contact Us</a></div>
             </div>
-            <img class="object-cover absolute z-20 w-full h-full rounded-3xl" width="1280" height="640" src="/assets/images/photos/living-room-01.png" alt="Hero picture" />
+            <p class="text-lg text-white max-w-xs">The Perfect Home Base for UC Davis Students. Just minutes from downtown Davis and UC Davis.</p>
+        </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="overflow-hidden absolute inset-0 w-screen h-screen">
+            <img class="object-cover overflow-hidden relative z-20 w-full h-full" width="1280" height="640" src="/assets/images/photos/living-room-01.png" alt="Hero picture" />
         </div>
     </div>
-</section>
+</div>
