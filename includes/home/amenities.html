@@ -1,59 +1,286 @@
-<section class="py-16 sm:py-20 bg-[#1E1929]">
-    <div class="px-6 mx-auto max-w-2xl lg:max-w-6xl lg:px-8">
+<section class="relative py-24 bg-[#121827] overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#ef9478]/0 via-[#ef9478] to-[#ef9478]/0"></div>
+        <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-[#ef9478]/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-[#ef9478]/5 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative z-10 px-6 mx-auto max-w-2xl lg:max-w-6xl lg:px-8">
         <div class="flex flex-col text-white">
-            <include src="heading_secondary.html" title="Amenities" description="View all the amenities provided by Redwood Tree Apartments"></include>
-            <div class="grid gap-8 mt-12 lg:grid-cols-3">
-                
-                    <div class="flex flex-col gap-8 px-6 py-8 rounded-xl overflow-hidden bg-gradient-to-br border border-white/[5%] from-[#F39E60]/[5%] to-[#F39E60]/10 dark:bg-zinc-400/10">
-                        <p class="text-4xl">
-                            <svg class="w-8 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M104,216V152h48v64h64V120a8,8,0,0,0-2.34-5.66l-80-80a8,8,0,0,0-11.32,0l-80,80A8,8,0,0,0,40,120v96Z" opacity="0.2"/><path d="M104,216V152h48v64h64V120a8,8,0,0,0-2.34-5.66l-80-80a8,8,0,0,0-11.32,0l-80,80A8,8,0,0,0,40,120v96Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
-                        </p>
-                        <div class="flex flex-col gap-4">
-                            <h3 class="text-xl font-medium">Apartment Amenities</h3>
-                            <ul class="list-disc pl-4">
-                                <li>Air Conditioning</li>
-                                <li>Heating</li>
-                                <li>Vinyl Flooring</li>
-                                <li>Balcony</li>
-                                <li>Patio</li>
-                                <li>Disposal</li>
-                            </ul>
+            <!-- Section Header with Animation -->
+            <div x-data="{ shown: false }" class="relative w-full" x-intersect.margin.-50px="shown = true">
+                <div class="flex flex-col items-center text-center mb-6">
+                    <div class="inline-flex items-center mb-4 px-4 py-1.5 bg-gradient-to-r from-[#ef9478]/20 to-[#ef9478]/10 backdrop-blur-md rounded-full border border-[#ef9478]/30 shadow-lg" :class="{ 'opacity-0 translate-y-4': !shown, 'opacity-100 translate-y-0': shown }" style="transition: all 0.6s ease-out;">
+                        <span class="inline-block text-sm font-medium tracking-wider uppercase text-[#ef9478] drop-shadow-glow">Exclusive Offerings</span>
+                    </div>
+                    
+                    <h2 :class="{ 'opacity-0 translate-y-4': !shown, 'opacity-100 translate-y-0': shown }" class="relative z-30 text-4xl md:text-5xl font-thin tracking-tight duration-500 ease-out text-white mb-4" style="transition: all 0.6s ease-out 0.2s;">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ef9478] to-[#f0a78e]">Amenities</span> You'll Love
+                    </h2>
+                    
+                    <p :class="{ 'opacity-0 translate-y-4': !shown, 'opacity-100 translate-y-0': shown }" class="relative z-20 mb-8 text-base md:text-lg duration-500 ease-out delay-100 text-zinc-300 max-w-2xl" style="transition: all 0.6s ease-out 0.3s;">
+                        View all the amenities provided by Redwood Tree Apartments designed to enhance your college living experience
+                    </p>
+                    
+                    <div :class="{ 'opacity-0 scale-x-0': !shown, 'opacity-100 scale-x-100': shown }" class="overflow-hidden relative mx-auto w-full max-w-md h-0.5 duration-700 ease-out delay-200 origin-center" style="transition: all 0.8s ease-out 0.4s;">
+                        <div class="overflow-hidden relative w-full h-1 rounded-full">
+                            <coloredbar class="flex relative z-40 items-center w-full h-full animate-shimmer">
+                                <div class="w-1/6 h-full bg-gradient-to-r from-[#7C444F] via-[#9F5255] to-[#E16A54]"></div>
+                                <div class="w-1/6 h-full bg-gradient-to-r from-[#E16A54] via-[#F39E60] to-[#E16A54]"></div>
+                                <div class="w-1/6 h-full bg-gradient-to-r from-[#E16A54] via-[#9F5255] to-[#7C444F]"></div>
+                                <div class="w-1/6 h-full bg-gradient-to-r from-[#7C444F] via-[#9F5255] to-[#E16A54]"></div>
+                                <div class="w-1/6 h-full bg-gradient-to-r from-[#E16A54] via-[#F39E60] to-[#E16A54]"></div>
+                                <div class="w-1/6 h-full bg-gradient-to-r from-[#E16A54] via-[#9F5255] to-[#7C444F]"></div>
+                            </coloredbar>
                         </div>
                     </div>
-                
-                    <div class="flex flex-col gap-12 px-6 py-8 rounded-xl overflow-hidden bg-gradient-to-br border border-white/[5%] from-[#F39E60]/[5%] to-[#F39E60]/10 dark:bg-zinc-400/10">
-                        <p class="text-4xl">
-                            <svg class="w-10 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><polygon points="224 72 176 72 176 40 80 40 80 104 32 104 32 216 112 216 112 168 144 168 144 216 224 216 224 72" opacity="0.2"/><line x1="16" y1="216" x2="240" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="224 216 224 72 176 72 176 40 80 40 80 104 32 104 32 216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="120" y1="72" x2="136" y2="72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="120" y1="104" x2="136" y2="104" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="176" y1="104" x2="192" y2="104" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="64" y1="136" x2="80" y2="136" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="64" y1="168" x2="80" y2="168" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="120" y1="136" x2="136" y2="136" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="176" y1="136" x2="192" y2="136" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="176" y1="168" x2="192" y2="168" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polyline points="112 216 112 168 144 168 144 216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>  
-                        </p>
-                        <div class="flex flex-col gap-4">
-                            <h3 class="text-xl font-medium">Community Amenities</h3>
-                            <ul class="list-disc pl-4">
-                                <li>Pool</li>
-                                <li>Study Room</li>
-                                <li>Fenced Lot</li>
-                                <li>Courtyard</li>
-                                <li>Washer and Dryer</li>
-                            </ul>
+                </div>
+            </div>
+            
+            <!-- Amenities Cards -->
+            <div class="grid gap-8 mt-16 lg:grid-cols-3" x-data="{ shown: false }" x-intersect.margin.-100px="shown = true">
+                <!-- Apartment Amenities Card -->
+                <div :class="{ 'opacity-0 translate-y-8': !shown, 'opacity-100 translate-y-0': shown }" 
+                     class="group flex flex-col gap-8 p-8 rounded-2xl overflow-hidden transition-all duration-700 ease-out" 
+                     style="transition-delay: 0.1s; background: linear-gradient(135deg, rgba(243, 158, 96, 0.08) 0%, rgba(243, 158, 96, 0.15) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.07); box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);">
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="p-4 bg-gradient-to-br from-[#E16A54]/20 to-[#E16A54]/10 rounded-xl border border-[#E16A54]/20 group-hover:border-[#E16A54]/30 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#E16A54]/5">
+                            <svg class="w-10 h-auto text-[#E16A54]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                                <rect width="256" height="256" fill="none"></rect>
+                                <path d="M104,216V152h48v64h64V120a8,8,0,0,0-2.34-5.66l-80-80a8,8,0,0,0-11.32,0l-80,80A8,8,0,0,0,40,120v96Z" fill="rgba(225, 106, 84, 0.2)"></path>
+                                <path d="M104,216V152h48v64h64V120a8,8,0,0,0-2.34-5.66l-80-80a8,8,0,0,0-11.32,0l-80,80A8,8,0,0,0,40,120v96Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                            </svg>
                         </div>
+                        
+                        <div class="h-px w-24 bg-gradient-to-r from-transparent via-[#E16A54]/30 to-transparent"></div>
                     </div>
+                    
+                    <div class="flex flex-col gap-6">
+                        <h3 class="text-2xl font-light text-white group-hover:text-[#E16A54] transition-colors duration-300">
+                            Apartment <span class="font-medium">Amenities</span>
+                        </h3>
+                        
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#E16A54]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Air Conditioning</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#E16A54]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Heating</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#E16A54]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Vinyl Flooring</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#E16A54]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Balcony</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#E16A54]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Patio</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#E16A54]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Disposal</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Decorative Element -->
+                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#E16A54]/10 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
                 
-                    <div class="flex flex-col gap-12 px-6 py-8 rounded-xl overflow-hidden bg-gradient-to-br border border-white/[5%] from-[#F39E60]/[5%] to-[#F39E60]/10 dark:bg-zinc-400/10">
-                        <p class="text-4xl">
-                            <svg class="w-10 h-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><circle cx="108" cy="100" r="60" opacity="0.2"/><line x1="200" y1="136" x2="248" y2="136" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="224" y1="112" x2="224" y2="160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><circle cx="108" cy="100" r="60" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M24,200c20.55-24.45,49.56-40,84-40s63.45,15.55,84,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg>
-                        </p>
-                        <div class="flex flex-col gap-4">
-                            <h3 class="text-xl font-medium">Additional Amenities</h3>
-                            <ul class="list-disc pl-4">
-                                <li>Student Housing</li>
-                                <li>Near Uc Davis</li>
-                                <li>Near Downtown Davis</li>
-                                <li>Fully-Equipped Kitchens</li>
-                                <li>Cable and Internet Ready</li>
-                            </ul>
+                <!-- Community Amenities Card -->
+                <div :class="{ 'opacity-0 translate-y-8': !shown, 'opacity-100 translate-y-0': shown }" 
+                     class="group flex flex-col gap-8 p-8 rounded-2xl overflow-hidden transition-all duration-700 ease-out" 
+                     style="transition-delay: 0.3s; background: linear-gradient(135deg, rgba(243, 158, 96, 0.08) 0%, rgba(243, 158, 96, 0.15) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.07); box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);">
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="p-4 bg-gradient-to-br from-[#F39E60]/20 to-[#F39E60]/10 rounded-xl border border-[#F39E60]/20 group-hover:border-[#F39E60]/30 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#F39E60]/5">
+                            <svg class="w-10 h-auto text-[#F39E60]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                                <rect width="256" height="256" fill="none"></rect>
+                                <polygon points="224 72 176 72 176 40 80 40 80 104 32 104 32 216 112 216 112 168 144 168 144 216 224 216 224 72" fill="rgba(243, 158, 96, 0.2)"></polygon>
+                                <line x1="16" y1="216" x2="240" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <polyline points="224 216 224 72 176 72 176 40 80 40 80 104 32 104 32 216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                                <line x1="120" y1="72" x2="136" y2="72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <line x1="120" y1="104" x2="136" y2="104" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <line x1="176" y1="104" x2="192" y2="104" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <line x1="64" y1="136" x2="80" y2="136" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <line x1="64" y1="168" x2="80" y2="168" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <line x1="120" y1="136" x2="136" y2="136" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <line x1="176" y1="136" x2="192" y2="136" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <line x1="176" y1="168" x2="192" y2="168" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <polyline points="112 216 112 168 144 168 144 216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                            </svg>
                         </div>
+                        
+                        <div class="h-px w-24 bg-gradient-to-r from-transparent via-[#F39E60]/30 to-transparent"></div>
                     </div>
+                    
+                    <div class="flex flex-col gap-6">
+                        <h3 class="text-2xl font-light text-white group-hover:text-[#F39E60] transition-colors duration-300">
+                            Community <span class="font-medium">Amenities</span>
+                        </h3>
+                        
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#F39E60]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Pool</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#F39E60]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Study Room</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#F39E60]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Fenced Lot</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#F39E60]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Courtyard</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#F39E60]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Washer and Dryer</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Decorative Element -->
+                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#F39E60]/10 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
                 
+                <!-- Additional Amenities Card -->
+                <div :class="{ 'opacity-0 translate-y-8': !shown, 'opacity-100 translate-y-0': shown }" 
+                     class="group flex flex-col gap-8 p-8 rounded-2xl overflow-hidden transition-all duration-700 ease-out" 
+                     style="transition-delay: 0.5s; background: linear-gradient(135deg, rgba(243, 158, 96, 0.08) 0%, rgba(243, 158, 96, 0.15) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.07); box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);">
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="p-4 bg-gradient-to-br from-[#7C444F]/20 to-[#7C444F]/10 rounded-xl border border-[#7C444F]/20 group-hover:border-[#7C444F]/30 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#7C444F]/5">
+                            <svg class="w-10 h-auto text-[#9F5255]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                                <rect width="256" height="256" fill="none"></rect>
+                                <circle cx="108" cy="100" r="60" fill="rgba(159, 82, 85, 0.2)"></circle>
+                                <line x1="200" y1="136" x2="248" y2="136" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <line x1="224" y1="112" x2="224" y2="160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <circle cx="108" cy="100" r="60" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle>
+                                <path d="M24,200c20.55-24.45,49.56-40,84-40s63.45,15.55,84,40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                            </svg>
+                        </div>
+                        
+                        <div class="h-px w-24 bg-gradient-to-r from-transparent via-[#9F5255]/30 to-transparent"></div>
+                    </div>
+                    
+                    <div class="flex flex-col gap-6">
+                        <h3 class="text-2xl font-light text-white group-hover:text-[#9F5255] transition-colors duration-300">
+                            Additional <span class="font-medium">Amenities</span>
+                        </h3>
+                        
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#9F5255]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Student Housing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#9F5255]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Near UC Davis</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#9F5255]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Near Downtown Davis</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#9F5255]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Fully-Equipped Kitchens</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-3 mt-0.5 text-[#9F5255]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span class="text-zinc-300 group-hover:text-white transition-colors duration-300">Cable and Internet Ready</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Decorative Element -->
+                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#9F5255]/10 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+            </div>
+            
+            <!-- Bottom CTA -->
+            <div class="mt-16 text-center" x-data="{ shown: false }" x-intersect.margin.-100px="shown = true">
+                <div :class="{ 'opacity-0 translate-y-4': !shown, 'opacity-100 translate-y-0': shown }" 
+                     class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#E16A54]/20 to-[#E16A54]/10 backdrop-blur-md rounded-full border border-[#E16A54]/30 shadow-lg transition-all duration-700 ease-out hover:shadow-xl hover:shadow-[#E16A54]/10 hover:-translate-y-1"
+                     style="transition-delay: 0.7s;">
+                    <a href="#" class="text-white font-medium">
+                        View All Amenities
+                        <span class="ml-2 text-[#E16A54]">→</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    /* Shimmer animation for the colored bar */
+    @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+    
+    .animate-shimmer {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .animate-shimmer::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+        animation: shimmer 2s infinite;
+    }
+    
+    /* Glow effect */
+    .drop-shadow-glow {
+        filter: drop-shadow(0 0 8px rgba(239, 148, 120, 0.3));
+    }
+</style>

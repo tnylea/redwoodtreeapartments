@@ -1,29 +1,194 @@
-<section class="relative py-16 bg-[#1E1929] sm:py-20 border-t border-gray-800">
-    <div class="px-6 mx-auto max-w-2xl lg:max-w-6xl lg:px-8">
+<section class="relative py-24 bg-[#121827] border-t border-gray-800/30 overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#ef9478]/0 via-[#ef9478] to-[#ef9478]/0"></div>
+        <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        <div class="absolute top-1/3 right-0 w-96 h-96 bg-[#ef9478]/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 -left-20 w-80 h-80 bg-[#ef9478]/5 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="relative z-10 px-6 mx-auto max-w-2xl lg:max-w-6xl lg:px-8">
         <div class="flex flex-col">
-            <include src="heading_secondary.html" title="Available Floor Plans" description="Explore our available floor plans and find the perfect place for you."></include>
-            <div class="relative z-40 items-center mx-auto mt-6 w-full max-w-6xl text-left animate-up-in-view" style="translate: none; rotate: none; scale: none; opacity: 0.9755; transform: translate3d(0px, 1.2272px, 0px);">
-                <div class="flex flex-col justify-center items-center mx-auto lg:space-y-0 space-y-10 lg:space-x-10 lg:flex-row">
-                    <include 
-                        src="partials/floor-plan.html"
-                        image="/assets/images/redwood-1-bedroom.png"
-                        description="1 Bedroom, 1 Bath – 660 sq ft"
-                        iframe="https://gallery.roomsketcher.com/live3d/?ctxt=rs_app&l=en&pid=13903826&_gl=1*18fiob5*_gcl_au*MjAxOTAyMTA1My4xNzQ0OTk4NzU4*_ga*MTE2MDczOTI0Mi4xNzQ0OTk4NzU4*_ga_1XJ0CC87HD*MTc0NTA4ODE4OC4yLjEuMTc0NTA4ODMwMy4yMi4wLjA.&mode=fly&play=1&logo=1&title=1&menu=1&toolbar=1"
-                    ></include>
-                    <include 
-                        src="partials/floor-plan.html"
-                        image="/assets/images/redwood-2-bedroom.png"
-                        description="2 Bedroom, 1 Bath – 820 sq ft"
-                        iframe="https://gallery.roomsketcher.com/live3d/?ctxt=rs_app&l=en&pid=14344407&_gl=1*1gcz2p2*_gcl_au*MjAxOTAyMTA1My4xNzQ0OTk4NzU4*_ga*MTE2MDczOTI0Mi4xNzQ0OTk4NzU4*_ga_1XJ0CC87HD*MTc0NTA4ODE4OC4yLjEuMTc0NTA4ODUxMC42MC4wLjA.&mode=fly&play=1&logo=1&title=1&menu=1&toolbar=1"
-                    ></include>
-                </div>
-            </div>
-            <div class="flex relative z-40 justify-center items-center pb-10 mt-16 w-full">
-                <div type="button" onclick="openAvailabilityModal()">
-                    <include src="elements/button.html" text="Check Current Availability"></include>
+            <!-- Section Header with Animation -->
+            <div x-data="{ shown: false }" class="relative w-full" x-intersect.margin.-50px="shown = true">
+                <div class="flex flex-col items-center text-center mb-6">
+                    <div class="inline-flex items-center mb-4 px-4 py-1.5 bg-gradient-to-r from-[#ef9478]/20 to-[#ef9478]/10 backdrop-blur-md rounded-full border border-[#ef9478]/30 shadow-lg" :class="{ 'opacity-0 translate-y-4': !shown, 'opacity-100 translate-y-0': shown }" style="transition: all 0.6s ease-out;">
+                        <span class="inline-block text-sm font-medium tracking-wider uppercase text-[#ef9478] drop-shadow-glow">Find Your Space</span>
+                    </div>
+                    
+                    <h2 :class="{ 'opacity-0 translate-y-4': !shown, 'opacity-100 translate-y-0': shown }" class="relative z-30 text-4xl md:text-5xl font-thin tracking-tight duration-500 ease-out text-white mb-4" style="transition: all 0.6s ease-out 0.2s;">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ef9478] to-[#f0a78e]">Available</span> Floor Plans
+                    </h2>
+                    
+                    <p :class="{ 'opacity-0 translate-y-4': !shown, 'opacity-100 translate-y-0': shown }" class="relative z-20 mb-8 text-base md:text-lg duration-500 ease-out delay-100 text-zinc-300 max-w-2xl" style="transition: all 0.6s ease-out 0.3s;">
+                        Explore our available floor plans and find the perfect place for you.
+                    </p>
+                    
+                    <div :class="{ 'opacity-0 scale-x-0': !shown, 'opacity-100 scale-x-100': shown }" class="overflow-hidden relative mx-auto w-full max-w-md h-0.5 duration-700 ease-out delay-200 origin-center" style="transition: all 0.8s ease-out 0.4s;">
+                        <div class="overflow-hidden relative w-full h-1 rounded-full">
+                            <coloredbar class="flex relative z-40 items-center w-full h-full animate-shimmer">
+                                <div class="w-1/6 h-full bg-gradient-to-r from-[#7C444F] via-[#9F5255] to-[#E16A54]"></div>
+                                <div class="w-1/6 h-full bg-gradient-to-r from-[#E16A54] via-[#F39E60] to-[#E16A54]"></div>
+                                <div class="w-1/6 h-full bg-gradient-to-r from-[#E16A54] via-[#9F5255] to-[#7C444F]"></div>
+                                <div class="w-1/6 h-full bg-gradient-to-r from-[#7C444F] via-[#9F5255] to-[#E16A54]"></div>
+                                <div class="w-1/6 h-full bg-gradient-to-r from-[#E16A54] via-[#F39E60] to-[#E16A54]"></div>
+                                <div class="w-1/6 h-full bg-gradient-to-r from-[#E16A54] via-[#9F5255] to-[#7C444F]"></div>
+                            </coloredbar>
+                        </div>
+                    </div>
                 </div>
             </div>
             
+            <!-- Floor Plans Display -->
+            <div class="relative z-40 items-center mx-auto mt-12 w-full max-w-6xl text-left" x-data="{ shown: false }" x-intersect.margin.-100px="shown = true">
+                <div class="flex flex-col justify-center items-center mx-auto lg:space-y-0 space-y-10 lg:space-x-10 lg:flex-row">
+                    <!-- 1 Bedroom Floor Plan -->
+                    <div :class="{ 'opacity-0 translate-y-8': !shown, 'opacity-100 translate-y-0': shown }" 
+                         class="flex relative flex-col flex-1 justify-center items-start transition-all duration-700 ease-out" 
+                         style="transition-delay: 0.2s;">
+                        <div onclick="window.open('/assets/images/redwood-1-bedroom.png', '_blank')" class="relative w-full group">
+                            <!-- Hover Overlay -->
+                            <div class="absolute opacity-0 group-hover:opacity-100 cursor-pointer ease-out duration-300 inset-0 flex items-center justify-center scale-[1.03] bg-gradient-to-br from-[#E16A54]/30 to-[#F39E60]/20 backdrop-blur-sm rounded-xl z-10">
+                                <div class="bg-white/10 p-3 rounded-full backdrop-blur-md border border-white/20 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Floor Plan Image Container -->
+                            <div class="w-full h-[400px] block rounded-xl overflow-hidden shadow-2xl shadow-[#E16A54]/5 border border-white/10 group-hover:border-[#E16A54]/30 transition-all duration-300">
+                                <img src="/assets/images/redwood-1-bedroom.png" class="object-cover w-auto h-full rounded-xl transform group-hover:scale-105 transition-transform duration-500 ease-out" alt="1 Bedroom, 1 Bath – 660 sq ft">
+                            </div>
+                            
+                            <!-- Decorative Corner Elements -->
+                            <div class="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-[#E16A54]/30 rounded-tl-xl"></div>
+                            <div class="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-[#E16A54]/30 rounded-tr-xl"></div>
+                            <div class="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-[#E16A54]/30 rounded-bl-xl"></div>
+                            <div class="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-[#E16A54]/30 rounded-br-xl"></div>
+                        </div>
+                        
+                        <!-- Floor Plan Details -->
+                        <div class="flex flex-col items-center w-full mt-16 bg-gradient-to-br from-[#121827]/80 to-[#121827]/60 backdrop-blur-md p-5 rounded-xl border border-white/5 shadow-lg transform -translate-y-10 z-20">
+                            <p class="text-xl font-light text-white">
+                                <span class="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#E16A54] to-[#F39E60]">1 Bedroom, 1 Bath</span> – 660 sq ft
+                            </p>
+                            
+                            <div class="flex space-x-4 mt-4">
+                                <a onclick="window.open('/assets/images/redwood-1-bedroom.png', '_blank')" class="group flex items-center px-4 py-2 bg-white/5 hover:bg-[#E16A54]/10 border border-white/10 hover:border-[#E16A54]/30 rounded-full transition-all duration-300 cursor-pointer">
+                                    <svg class="w-4 h-4 mr-2 text-[#E16A54]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                    </svg>
+                                    <span class="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors duration-300">Zoom Floor Plan</span>
+                                </a>
+                                
+                                <a onclick="window.open('https://gallery.roomsketcher.com/live3d/?ctxt=rs_app&amp;l=en&amp;pid=13903826&amp;_gl=1*18fiob5*_gcl_au*MjAxOTAyMTA1My4xNzQ0OTk4NzU4*_ga*MTE2MDczOTI0Mi4xNzQ0OTk4NzU4*_ga_1XJ0CC87HD*MTc0NTA4ODE4OC4yLjEuMTc0NTA4ODMwMy4yMi4wLjA.&amp;mode=fly&amp;play=1&amp;logo=1&amp;title=1&amp;menu=1&amp;toolbar=1', '_blank')" class="group flex items-center px-4 py-2 bg-white/5 hover:bg-[#E16A54]/10 border border-white/10 hover:border-[#E16A54]/30 rounded-full transition-all duration-300 cursor-pointer">
+                                    <svg class="w-4 h-4 mr-2 text-[#E16A54]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                                    </svg>
+                                    <span class="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors duration-300">View in 3D</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2 Bedroom Floor Plan -->
+                    <div :class="{ 'opacity-0 translate-y-8': !shown, 'opacity-100 translate-y-0': shown }" 
+                         class="flex relative flex-col flex-1 justify-center items-start transition-all duration-700 ease-out" 
+                         style="transition-delay: 0.4s;">
+                        <div onclick="window.open('/assets/images/redwood-2-bedroom.png', '_blank')" class="relative w-full group">
+                            <!-- Hover Overlay -->
+                            <div class="absolute opacity-0 group-hover:opacity-100 cursor-pointer ease-out duration-300 inset-0 flex items-center justify-center scale-[1.03] bg-gradient-to-br from-[#F39E60]/30 to-[#E16A54]/20 backdrop-blur-sm rounded-xl z-10">
+                                <div class="bg-white/10 p-3 rounded-full backdrop-blur-md border border-white/20 shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Floor Plan Image Container -->
+                            <div class="w-full h-[400px] block rounded-xl overflow-hidden shadow-2xl shadow-[#F39E60]/5 border border-white/10 group-hover:border-[#F39E60]/30 transition-all duration-300">
+                                <img src="/assets/images/redwood-2-bedroom.png" class="object-cover w-full h-auto rounded-xl transform group-hover:scale-105 transition-transform duration-500 ease-out" alt="2 Bedroom, 1 Bath – 820 sq ft">
+                            </div>
+                            
+                            <!-- Decorative Corner Elements -->
+                            <div class="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-[#F39E60]/30 rounded-tl-xl"></div>
+                            <div class="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-[#F39E60]/30 rounded-tr-xl"></div>
+                            <div class="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-[#F39E60]/30 rounded-bl-xl"></div>
+                            <div class="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-[#F39E60]/30 rounded-br-xl"></div>
+                        </div>
+                        
+                        <!-- Floor Plan Details -->
+                        <div class="flex flex-col items-center w-full mt-16 bg-gradient-to-br from-[#121827]/80 to-[#121827]/60 backdrop-blur-md p-5 rounded-xl border border-white/5 shadow-lg transform -translate-y-10 z-20">
+                            <p class="text-xl font-light text-white">
+                                <span class="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#F39E60] to-[#E16A54]">2 Bedroom, 1 Bath</span> – 820 sq ft
+                            </p>
+                            
+                            <div class="flex space-x-4 mt-4">
+                                <a onclick="window.open('/assets/images/redwood-2-bedroom.png', '_blank')" class="group flex items-center px-4 py-2 bg-white/5 hover:bg-[#F39E60]/10 border border-white/10 hover:border-[#F39E60]/30 rounded-full transition-all duration-300 cursor-pointer">
+                                    <svg class="w-4 h-4 mr-2 text-[#F39E60]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                    </svg>
+                                    <span class="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors duration-300">Zoom Floor Plan</span>
+                                </a>
+                                
+                                <a onclick="window.open('https://gallery.roomsketcher.com/live3d/?ctxt=rs_app&amp;l=en&amp;pid=14344407&amp;_gl=1*1gcz2p2*_gcl_au*MjAxOTAyMTA1My4xNzQ0OTk4NzU4*_ga*MTE2MDczOTI0Mi4xNzQ0OTk4NzU4*_ga_1XJ0CC87HD*MTc0NTA4ODE4OC4yLjEuMTc0NTA4ODUxMC42MC4wLjA.&amp;mode=fly&amp;play=1&amp;logo=1&amp;title=1&amp;menu=1&amp;toolbar=1', '_blank')" class="group flex items-center px-4 py-2 bg-white/5 hover:bg-[#F39E60]/10 border border-white/10 hover:border-[#F39E60]/30 rounded-full transition-all duration-300 cursor-pointer">
+                                    <svg class="w-4 h-4 mr-2 text-[#F39E60]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                                    </svg>
+                                    <span class="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors duration-300">View in 3D</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="flex relative z-40 justify-center items-center mt-16" x-data="{ shown: false }" x-intersect.margin.-100px="shown = true">
+                <div :class="{ 'opacity-0 translate-y-4': !shown, 'opacity-100 translate-y-0': shown }" 
+                     class="transition-all duration-700 ease-out"
+                     style="transition-delay: 0.6s;">
+                    <button type="button" onclick="openAvailabilityModal()" class="group relative inline-flex items-center justify-center px-8 py-4 text-white bg-gradient-to-r from-[#b4644b] to-[#c97c5d] rounded-full border border-[#ef9478]/20 transition-all duration-300 hover:shadow-lg hover:shadow-[#ef9478]/20 hover:-translate-y-1 shadow-md overflow-hidden">
+                        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-[#c97c5d] to-[#b4644b] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <span class="relative z-10 font-medium tracking-wide flex items-center">
+                            Check Current Availability
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<style>
+    /* Shimmer animation for the colored bar */
+    @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+    
+    .animate-shimmer {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .animate-shimmer::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+        animation: shimmer 2s infinite;
+    }
+    
+    /* Glow effect */
+    .drop-shadow-glow {
+        filter: drop-shadow(0 0 8px rgba(239, 148, 120, 0.3));
+    }
+</style>

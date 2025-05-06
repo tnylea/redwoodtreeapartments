@@ -1,27 +1,260 @@
-<section class="py-16 sm:py-20 bg-[#1E1929]">
-    <div class="px-6 mx-auto max-w-2xl text-center lg:max-w-7xl lg:px-8">
-        <div class="flex flex-col items-center gap-8 px-5 py-16 text-white bg-[#1E1929]/10 rounded-3xl sm:gap-10">
-            <div class="flex flex-col gap-4 sm:gap-6">
-                <h2 class="mx-auto max-w-sm text-3xl font-medium tracking-tight sm:text-4xl">Contact us today</h2>
-                <p class="mx-auto max-w-2xl text-lg text-primary-950/70 dark:text-primary-200/70">Reach out to us today to learn more about Century Plaza or to schedule a personal tour of our vibrant community.</p>
-            </div>
-            <div class="flex flex-col p-10 mx-auto max-w-md rounded-xl text-zinc-700 dark:text-zinc-100 bg-zinc-100">
-                <div class="relative space-y-6 flex flex-col items-center justify-center">
-                    <img class="relative top-0 w-auto h-9 duration-1000 ease-in-out translate-y-0 starting:duration-1000 starting:-translate-y-1 starting:opacity-0" src="/assets/images/logo.png" alt="Redwood Tree Apartments Logo" />
-                    <h2 class="font-bold">Redwood Tree Apartments</h2>607 E 8th St. Davis, CA 95616
+<section class="relative py-24 bg-[#121827] overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#ef9478]/0 via-[#ef9478] to-[#ef9478]/0"></div>
+        <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        <div class="absolute top-1/4 -right-40 w-96 h-96 bg-[#ef9478]/5 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 -left-40 w-96 h-96 bg-[#ef9478]/5 rounded-full blur-3xl animate-pulse-slow animation-delay-2000"></div>
+    </div>
+    
+    <div class="relative z-10 px-6 mx-auto max-w-2xl lg:max-w-7xl lg:px-8">
+        <div x-data="{ shown: false }" x-intersect.margin.-100px="shown = true" 
+             :class="{ 'opacity-0 translate-y-8': !shown, 'opacity-100 translate-y-0': shown }"
+             class="flex flex-col items-center gap-16 px-8 py-20 text-white rounded-3xl transition-all duration-1000 ease-out"
+             style="background: linear-gradient(135deg, rgba(18, 24, 39, 0.8) 0%, rgba(18, 24, 39, 0.95) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.3);">
+            
+            <!-- Decorative Elements -->
+            <div class="absolute inset-0 overflow-hidden rounded-3xl">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#ef9478]/30 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                <div class="absolute -top-40 -right-40 w-80 h-80 bg-[#ef9478]/5 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-[#ef9478]/5 rounded-full blur-3xl"></div>
+                
+                <!-- Animated Particles -->
+                <div class="absolute inset-0 opacity-30">
+                    <div id="contact-particles" class="absolute inset-0"></div>
                 </div>
-                <div class="relative mt-5">
-                    <p class="block mb-5 text-sm opacity-70">Have a question or want to schedule a viewing?</p>
-                    <div onclick="openContactModal()">
-                        <include src="button.html" text="Click here to Contact Us"></include>
+            </div>
+            
+            <!-- Section Header -->
+            <div class="flex flex-col gap-6 text-center max-w-2xl relative z-10" 
+                 :class="{ 'opacity-0 translate-y-4': !shown, 'opacity-100 translate-y-0': shown }" 
+                 style="transition: all 0.8s ease-out 0.2s;">
+                <div class="inline-flex items-center justify-center mx-auto mb-2 px-4 py-1.5 bg-gradient-to-r from-[#ef9478]/20 to-[#ef9478]/10 backdrop-blur-md rounded-full border border-[#ef9478]/30 shadow-lg">
+                    <span class="inline-block text-sm font-medium tracking-wider uppercase text-[#ef9478] drop-shadow-glow">Get In Touch</span>
+                </div>
+                
+                <h2 class="text-4xl md:text-5xl font-thin tracking-tight text-white">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ef9478] to-[#f0a78e] font-normal">Contact us</span> today
+                </h2>
+                
+                <p class="mx-auto max-w-2xl text-lg text-zinc-300">
+                    Reach out to us today to learn more about Redwood Tree Apartments or to schedule a personal tour of our vibrant community.
+                </p>
+            </div>
+            
+            <!-- Contact Card -->
+            <div class="relative max-w-md w-full z-10" 
+                 :class="{ 'opacity-0 translate-y-8': !shown, 'opacity-100 translate-y-0': shown }" 
+                 style="transition: all 0.8s ease-out 0.4s;">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#E16A54]/20 to-[#F39E60]/10 rounded-2xl blur-xl opacity-70 transform scale-105"></div>
+                
+                <div class="relative flex flex-col p-10 rounded-2xl overflow-hidden bg-gradient-to-br from-white/95 to-white/90 text-zinc-700 shadow-2xl">
+                    <!-- Decorative Corner Elements -->
+                    <div class="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#E16A54]/30 rounded-tl-2xl"></div>
+                    <div class="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-[#E16A54]/30 rounded-tr-2xl"></div>
+                    <div class="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-[#E16A54]/30 rounded-bl-2xl"></div>
+                    <div class="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#E16A54]/30 rounded-br-2xl"></div>
+                    
+                    <!-- Logo and Info -->
+                    <div class="relative space-y-6 flex flex-col items-center justify-center">
+                        <div class="relative p-4 border-[#E16A54]/10">
+                            <img class="relative w-full h-auto duration-1000 ease-in-out" src="/assets/images/logo.png" alt="Redwood Tree Apartments Logo">
+                        </div>
+                        
+                        <div class="text-center">
+                            <h2 class="text-2xl font-semibold text-[#121827] mb-2">Redwood Tree Apartments</h2>
+                            <p class="text-zinc-600 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-[#E16A54]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                607 E 8th St. Davis, CA 95616
+                            </p>
+                        </div>
                     </div>
+                    
+                    <!-- Contact CTA -->
+                    <div class="relative mt-8 text-center">
+                        <div class="h-px w-full bg-gradient-to-r from-transparent via-[#E16A54]/30 to-transparent mb-6"></div>
+                        
+                        <p class="block mb-6 text-base text-zinc-600">Have a question or want to schedule a viewing?</p>
+                        
+                        <div onclick="openContactModal()">
+                            <button class="group relative inline-flex items-center justify-center px-8 py-4 text-white bg-gradient-to-r from-[#b4644b] to-[#c97c5d] rounded-full border border-[#ef9478]/20 transition-all duration-300 hover:shadow-lg hover:shadow-[#ef9478]/20 hover:-translate-y-1 shadow-md overflow-hidden w-full">
+                                <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-[#c97c5d] to-[#b4644b] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                                <span class="relative z-10 font-medium tracking-wide flex items-center justify-center">
+                                    Contact Us Now
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Contact Options -->
+                    <div class="flex justify-center space-x-4 mt-6">
+                        <a href="tel:5305551234" class="p-3 bg-white/50 rounded-full shadow-md border border-[#E16A54]/10 hover:bg-[#E16A54]/10 transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#E16A54]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                        </a>
+                        <a href="mailto:info@redwoodtreeapts.com" class="p-3 bg-white/50 rounded-full shadow-md border border-[#E16A54]/10 hover:bg-[#E16A54]/10 transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#E16A54]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </a>
+                        <a href="https://maps.google.com/?q=607+E+8th+St.+Davis+CA+95616" target="_blank" class="p-3 bg-white/50 rounded-full shadow-md border border-[#E16A54]/10 hover:bg-[#E16A54]/10 transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#E16A54]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Contact Info -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl relative z-10" 
+                 :class="{ 'opacity-0 translate-y-8': !shown, 'opacity-100 translate-y-0': shown }" 
+                 style="transition: all 0.8s ease-out 0.6s;">
+                
+                <!-- Office Hours -->
+                <div class="bg-gradient-to-br from-[#121827]/80 to-[#121827]/60 backdrop-blur-md p-6 rounded-xl border border-white/5 shadow-lg text-center">
+                    <div class="p-3 bg-[#E16A54]/10 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#E16A54]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-2">Office Hours</h3>
+                    <p class="text-zinc-300">Mon-Fri: 9am - 6pm</p>
+                    <p class="text-zinc-300">Sat: 10am - 4pm</p>
+                    <p class="text-zinc-300">Sun: Closed</p>
+                </div>
+                
+                <!-- Leasing Info -->
+                <div class="bg-gradient-to-br from-[#121827]/80 to-[#121827]/60 backdrop-blur-md p-6 rounded-xl border border-white/5 shadow-lg text-center">
+                    <div class="p-3 bg-[#F39E60]/10 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#F39E60]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-2">Leasing Info</h3>
+                    <p class="text-zinc-300">Academic Year Leases</p>
+                    <p class="text-zinc-300">Summer Leases Available</p>
+                    <p class="text-zinc-300">Flexible Terms for Students</p>
+                </div>
+                
+                <!-- Virtual Tours -->
+                <div class="bg-gradient-to-br from-[#121827]/80 to-[#121827]/60 backdrop-blur-md p-6 rounded-xl border border-white/5 shadow-lg text-center">
+                    <div class="p-3 bg-[#9F5255]/10 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#9F5255]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-2">Virtual Tours</h3>
+                    <p class="text-zinc-300">Can't visit in person?</p>
+                    <p class="text-zinc-300">Schedule a virtual tour</p>
+                    <p class="text-zinc-300">Available 7 days a week</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Particles.js Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Load particles.js if it exists
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('contact-particles', {
+            "particles": {
+                "number": {
+                    "value": 20,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                },
+                "opacity": {
+                    "value": 0.2,
+                    "random": true,
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ef9478",
+                    "opacity": 0.1,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1,
+                    "direction": "none",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": false,
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.3
+                        }
+                    },
+                }
+            },
+            "retina_detect": true
+        });
+    }
+});
+</script>
 
-
-
-
+<style>
+    /* Premium animations */
+    @keyframes pulse-slow {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.6; }
+    }
+    
+    .animate-pulse-slow {
+        animation: pulse-slow 4s infinite ease-in-out;
+    }
+    
+    .animation-delay-2000 {
+        animation-delay: 2s;
+    }
+    
+    /* Glow effect */
+    .drop-shadow-glow {
+        filter: drop-shadow(0 0 8px rgba(239, 148, 120, 0.3));
+    }
+</style>

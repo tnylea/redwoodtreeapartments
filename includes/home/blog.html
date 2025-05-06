@@ -1,10 +1,33 @@
 <section id="blog" class="flex justify-center items-center w-screen" x-intersect.half="elementScrolledIntoPosition($el)">
-    <div class="flex relative flex-col justify-start items-start py-20 mx-auto w-full h-full bg-gradient-to-br bg-[#1E1929] border-t border-b border-gray-700">
+    <div class="flex relative flex-col justify-start items-start py-20 mx-auto w-full h-full bg-gradient-to-br bg-[#121827] border-t border-b border-gray-700">
         <div class="relative px-6 mx-auto w-full max-w-6xl text-left lg:px-8 animate-up-in-view">
-            <include src="heading_secondary.html" title="From Our Blog" description="Latest News and Updates"></include>
+            <div x-data="{ shown: false }" class="relative w-full" x-intersect.margin.-50px="shown = true" x-cloak>
+                <h2 :class="{ 'opacity-0 translate-y-1': !shown }" class="relative z-30 text-3xl font-thin tracking-tight duration-300 ease-out text-zinc-200 sm:text-4xl">{title}</h2>
+                <p :class="{ 'opacity-0 translate-y-1': !shown }" class="relative z-20 mb-5 text-base duration-300 ease-out delay-100 text-zinc-300 sm:text-lg">{description}</p>
+                <div :class="{ 'opacity-0 -translate-y-2': !shown }" class="overflow-hidden relative mx-auto w-full max-w-6xl h-0.5 duration-500 ease-out delay-200">
+                    <div class="overflow-hidden relative w-full h-1 rounded-full">
+                        <include src="coloredbar.html"></include>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="items-center px-6 pt-0 mx-auto w-full max-w-6xl lg:px-8">
-            <include src="partials/blog-loop.html"></include>
+            <ForEach content="post" as="post" count="{count}">
+
+                <article>
+                    <div class="relative py-8 md:py-16 before:absolute after:absolute before:bg-red-600 after:bg-neutral-950/10 dark:after:bg-neutral-100/10">
+                        <div class="relative lg:-mx-4 lg:flex lg:justify-end">
+                            <div class="pt-10 text-left lg:w-full lg:flex-none lg:px-4 lg:pt-0">
+                                <h2 class="text-2xl font-semibold font-display text-neutral-100 dark:text-neutral-100"><a href="{post.link}">{post.title}</a></h2>
+                                <p class="mt-3 text-base text-left text-neutral-500">{post.description}</p>
+                                <a class="inline-flex py-1.5 mt-3 text-sm font-semibold text-[#F39E60] rounded-full transition hover:text-[#E16A54]" aria-label="Read more: The Future of Web Development: Our Predictions for 2023" href="{post.link}"><span class="relative top-px">Read more</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            
+            
+            </ForEach>
             <div class="pt-5 pb-5 w-full text-center md:pt-12">
                 <include src="elements/button.html" param="a" onclick="window.location.href='/blog'" text="View all posts"></include>
             </div>
