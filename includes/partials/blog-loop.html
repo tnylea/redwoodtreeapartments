@@ -1,11 +1,11 @@
 <ForEach content="post" as="post" count="{count}">
 
     <article>
-        <div class="relative py-8 md:py-16 before:absolute after:absolute before:bg-red-600 after:bg-neutral-950/10 dark:after:bg-neutral-100/10">
+        <div class="relative py-4 sm:py-8 md:py-16 before:absolute after:absolute before:bg-red-600 after:bg-neutral-950/10 dark:after:bg-neutral-100/10">
             <div class="relative lg:-mx-4 lg:flex lg:justify-end">
-                <div class="pt-10 text-left lg:w-full lg:flex-none lg:px-4 lg:pt-0">
-                    <h2 class="text-2xl font-semibold font-display text-neutral-100 dark:text-neutral-100"><a href="{post.link}">{post.title}</a></h2>
-                    <p class="mt-3 text-base text-left text-neutral-500">{post.description}</p>
+                <div class="pt-3 sm:pt-7 mdpt-10 text-left lg:w-full lg:flex-none lg:px-4 lg:pt-0">
+                    <h2 class="text-lg sm:text-xl md:text-2xl font-semibold font-display text-neutral-100 dark:text-neutral-100"><a href="{post.link}">{post.title}</a></h2>
+                    <p class="mt-3 text-xs sm:text-sm text-base text-left text-neutral-500">{post.description}</p>
                     <a class="inline-flex py-1.5 mt-3 text-sm font-semibold text-[#F39E60] rounded-full transition hover:text-[#E16A54]" aria-label="Read more: The Future of Web Development: Our Predictions for 2023" href="{post.link}"><span class="relative top-px">Read more</span></a>
                 </div>
             </div>

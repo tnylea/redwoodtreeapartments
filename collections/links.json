@@ -6,17 +6,17 @@
     },
     {
         "ref": "02",
+        "name": "Blog",
+        "href": "/blog"
+    },
+    {
+        "ref": "03",
         "name": "Photos",
         "href": "/photos"
     },
     {
-        "ref": "03",
+        "ref": "04",
         "name": "Availability",
         "href": "/availability"
-    },
-    {
-        "ref": "04",
-        "name": "Blog",
-        "href": "/blog"
     }
 ]

@@ -11,7 +11,13 @@
         <!-- Navigation -->
         <nav class="flex flex-col gap-1 divide-y divide-[#f8dfc0] dark:divide-primary-300/10">
             <ForEach collection="links">
-                <a href={links.href} class="inline-flex py-6 text-3xl font-medium tracking-tight transition text-primary-950 dark:text-primary-200 group focus-visible:outline-hidden sm:py-8 sm:text-4xl">
+                <If condition="links.ref == '04'">
+                    <a onclick="openAvailabilityModal()" class="inline-flex py-6 text-3xl font-medium tracking-tight transition text-primary-950 dark:text-primary-200 group focus-visible:outline-hidden sm:py-8 sm:text-4xl">
+                </If>
+                <If condition="links.ref != '04'">
+                    <a href={links.href} class="inline-flex py-6 text-3xl font-medium tracking-tight transition text-primary-950 dark:text-primary-200 group focus-visible:outline-hidden sm:py-8 sm:text-4xl">
+                </If>
+                
                     <div class="flex flex-1 justify-between items-center rounded-3xl group-focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2">
                         <div class="flex gap-6 items-center">
                             <span class="text-xs">{links.ref}</span>

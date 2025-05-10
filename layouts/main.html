@@ -10,6 +10,8 @@
     <link rel="manifest" href="/site.webmanifest" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.3.1/dist/typography.min.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Domine:wght@400..700&display=swap" rel="stylesheet">
@@ -43,7 +45,7 @@ $watch('open', function(value){
         document.classList.remove('menu-open');
     }
 })
-" class="overflow-x-hidden antialiased transition bg-primary-50 text-primary-950 dark:bg-primary-950 dark:text-primary-200">
+" class="overflow-x-hidden antialiased transition bg-[#121827] text-primary-950 dark:bg-primary-950 dark:text-primary-200">
 <header x-data="{ mobileMenu: false }" x-init="$watch('mobileMenu', value => {
     if (value) {
         window.mobileMenuOpen = true;

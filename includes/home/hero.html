@@ -7,7 +7,7 @@
             <div class="flex relative flex-col justify-center items-end ml-0 w-full lg:w-1/2 h-full">
                 <div class="absolute inset-0 z-10 w-1/2 lg:w-full h-full  scale-125 rotate-6 -translate-x-20 bg-gradient-to-l from-transparent via-[#121827]/90 to-[#121827]/100"></div>
             <div class="relative z-20 pl-6 pr-6 lg:pr-0 lg:pl-8 w-full max-w-full lg:max-w-xl translate-y-8">
-                <div class="inline-flex items-center mb-10 px-3 py-1 bg-[#ef9478]/20 backdrop-blur-sm rounded-full border border-[#ef9478]/30">
+                <div class="inline-flex items-center mb-5 lg:mb-10 px-3 py-1 bg-[#ef9478]/20 backdrop-blur-sm rounded-full border border-[#ef9478]/30">
                     <span class="inline-block text-sm font-medium starting:opacity-0 opacity-100 duration-500 delay-200 ease-in tracking-tighter uppercase text-[#ef9478]">In the center of it all</span>
                 </div>
             <h1 x-data="{
@@ -36,14 +36,14 @@
                     $el.classList.remove('invisible');
                     gsap.fromTo($el.children, this.startingAnimation, this.endingAnimation);
                 }
-            }" x-init="()=> { splitCharactersIntoSpans($el); animateText() }" oncontextmenu="alert('ok')" @animate-start.window="animateText()" class="invisible mb-12 max-w-md text-5xl sm:text-6xl font-thin text-left text-white custom-font">
+            }" x-init="()=> { splitCharactersIntoSpans($el); animateText() }" oncontextmenu="alert('ok')" @animate-start.window="animateText()" class="invisible mb-5 lg:mb-12 max-w-md text-5xl sm:text-6xl font-thin text-left text-white custom-font">
             Student Focused Living in Davis
         </h1>
-        <p class="text-lg text-white max-w-xs mb-10 starting:opacity-0 opacity-100 duration-500 delay-200">Live steps from campus, coffee, and everything Davis has to offer.</p>
+        <p class="text-lg text-white max-w-xsm mb-5 lg:mb-10 starting:opacity-0 opacity-100 duration-500 delay-200">Live steps from campus, coffee, and everything Davis has to offer.</p>
         <div class="opacity-100 duration-500 delay-200 starting:-translate-y-2 starting:opacity-0">
-            <div class="flex flex-wrap -m-2 mb-12">
+            <div class="flex flex-wrap -m-2 mb-5 lg:mb-12">
                 <div class="p-2 w-auto">
-                    <a class="inline-flex items-center justify-center px-8 py-4 tracking-tighter text-white bg-[#b4644b] rounded-full border-2 border-[#b4644b] transition duration-300 hover:bg-[#a4543b] hover:transform hover:-translate-y-1 hover:shadow-lg shadow-md" href="#">
+                    <a onclick="openAvailabilityModal()" class="inline-flex items-center justify-center px-8 py-4 tracking-tighter text-white bg-[#b4644b] rounded-full border-2 border-[#b4644b] transition duration-300 hover:bg-[#a4543b] hover:transform hover:-translate-y-1 hover:shadow-lg shadow-md" href="#">
                         <span>Check Availability</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -80,7 +80,7 @@
         
         
         <div class="overflow-hidden absolute inset-0 w-screen h-screen">
-            <img class="object-cover overflow-hidden relative z-20 w-full h-full" width="1280" height="640" src="/assets/images/photos/living-room-01.png" alt="Hero picture" />
+            <img class="object-cover overflow-hidden relative z-20 w-full h-full" width="1280" height="640" src="/assets/images/photos/living-room.jpg" alt="Hero picture" />
         </div>
     </div>
 </div>
