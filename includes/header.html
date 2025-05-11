@@ -28,8 +28,24 @@ class="top-0 w-full h-auto border-b transition duration-300 ease-out z-99" :clas
         <!-- Actions -->
         <div class="flex items-center">
             <!-- Toggle theme mode -->
-            <span class="sm:block hidden" onclick="openAvailabilityModal()">
-                <include src="button.html" text="Check Availability" url="#"></include>
+            <span class="w-full flex space-x-3.5 items-center translate-y-0.5">
+                <a
+                a href="https://blrcommercial.appfolio.com/users/sign_in" target="_blank" 
+                     class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#E16A54]/20 to-[#E16A54]/10 backdrop-blur-md rounded-full border border-[#E16A54]/30 transition-all duration-300 ease-out hover:shadow-xl hover:shadow-[#E16A54]/10 hover:-translate-y-0.5"
+                     :class="{ 'bg-gradient-to-r text-[#E16A54] from-[#E16A54]/20 to-[#E16A54]/10': open, 'bg-gradient-to-r text-white shadow-lg from-[#E16A54]/20 to-[#E16A54]/10': !open }"
+                     >
+                    <span 
+                        :class="{ 'text-[#5b2a31]': open, 'text-white': !open }"
+                        class="text-white font-medium flex items-center h-full w-full">
+                        <svg class="w-4 h-4 -ml-1.5 mr-1.5" :class="{ 'text-[#E16A54]'43w2ee: !open, 'text-white': open }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key-round-icon lucide-key-round"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+                        <span class="md:inline hidden mr-1">Resident </span>Login
+                        
+                    </span>
+            </a>
+                
+                <span class="sm:block hidden" onclick="openAvailabilityModal()">
+                    <include src="button.html" text="Check Availability" url="#"></include>
+                </span>
             </span>
 
             <!-- Toggle menu -->
