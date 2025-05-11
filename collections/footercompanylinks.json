@@ -5,13 +5,13 @@
         "isExternal": false
     },
     {
-        "name": "About",
-        "href": "/about",
+        "name": "Blog",
+        "href": "/blog",
         "isExternal": false
     },
     {
-        "name": "Pricing",
-        "href": "/pricing",
+        "name": "Photos",
+        "href": "/photos",
         "isExternal": false
     },
     {

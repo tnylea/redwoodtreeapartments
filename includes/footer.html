@@ -1,5 +1,5 @@
 <footer x-data class="py-16 bg-[#121827] relative lg:py-20" aria-labelledby="footer-heading">
-    <div class="absolute top-0 left-0 z-50 w-full h-1">
+    <div class="absolute top-0 left-0 z-40 w-full h-1">
         <include src="coloredbar.html"></include>
     </div>
     <h2 id="footer-heading" class="sr-only">Footer</h2>
@@ -14,55 +14,33 @@
                     Welcome to Redwood Tree Apartments. Perfect for Student living and located near in the center of it all in Davis, CA.
                     <br><span class="text-sm pt-3 inline-block">Contact: 530-601-9631</span>
                 </p>
-                <p class="text-sm font-medium text-stone-300/70 text-left lg:text-base">BLR Commercial Real Estate, Inc. is a licensed California real estate broker. DRE License #0187689</p>
                 <p class="text-sm text-gray-200/70">© 2025 Redwood Tree Apartments</p>
             </div>
 
             <!-- Bottom links -->
             <div class="grid flex-1 grid-cols-1 gap-8 max-w-xl sm:grid-cols-3">
-
-                <!-- Social -->
-                <div class="flex flex-col gap-4">
-                    <p class="text-base font-medium text-white">Links</p>
-                    <ul role="list" class="flex flex-col gap-3 text-gray-200">
-                        <ForEach collection="footersociallinks">
-                            <li>
-                                <a href={footersociallinks.href} class="inline-flex gap-1 items-center text-base rounded-md focus-visible:outline-primary-950 dark:focus-visible:outline-primary-200 hover:underline focus-visible:outline focus-visible:outline-2" target="_blank">
-                                    {footersociallinks.name}
-                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z" /></svg>
-                                </a>
-                            </li>
-                        </ForEach>
-                    </ul>
-                </div>
-
                 <!-- Company -->
-                <div class="flex flex-col gap-4">
-                  <p class="text-base font-medium text-white">Company</p>
+                <div class="flex flex-col gap-6 sm:gap-8 col-span-1">
+                  <p class="text-base font-medium text-white">Website Links</p>
                   <ul role="list" class="flex flex-col gap-3 text-gray-200">
                       <ForEach collection="footercompanylinks">
                           <li>
-                              <a href={footercompanylinks.href} class="inline-flex gap-1 items-center text-base rounded-md focus-visible:outline-primary-950 dark:focus-visible:outline-primary-200 hover:underline focus-visible:outline focus-visible:outline-2">
+                              <a href={footercompanylinks.href} class="inline-flex gap-1 underline items-center text-base rounded-md focus-visible:outline-primary-950 dark:focus-visible:outline-primary-200 hover:underline focus-visible:outline focus-visible:outline-2">
                                   {footercompanylinks.name}
                               </a>
                           </li>
                       </ForEach>
                   </ul>
               </div>
+                <div class="flex flex-col items-start justify-start gap-6 sm:gap-8 col-span-2">
+                    <a href="https://blrcommercial.com" target="_blank">
+                        <img src="/assets/images/blr-logo.png" alt="BLR Commercial Real Estate Logo" class="w-auto h-7">
+                    </a>
+                    <p class="text-sm font-medium text-stone-300/70 text-left lg:text-base">BLR Commercial Real Estate, Inc. is a licensed California real estate broker. DRE License #0187689</p>
+                </div>
+                
 
-              <!-- Legal -->
-              <div class="flex flex-col gap-4">
-                <p class="text-base font-medium text-white">Legal</p>
-                <ul role="list" class="flex flex-col gap-3 text-gray-200">
-                    <ForEach collection="footerlegallinks">
-                        <li>
-                            <a href={footerlegallinks.href} class="inline-flex gap-1 items-center text-base rounded-md focus-visible:outline-primary-950 dark:focus-visible:outline-primary-200 hover:underline focus-visible:outline focus-visible:outline-2">
-                                {footerlegallinks.name}
-                            </a>
-                        </li>
-                    </ForEach>
-                </ul>
-            </div>
+              
 
 
             </div>
