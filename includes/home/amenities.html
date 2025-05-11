@@ -11,7 +11,7 @@
         <div class="flex flex-col text-white">
             <!-- Section Header with Animation -->
             <div x-data="{ shown: false }" class="relative w-full" x-intersect.margin.-50px="shown = true">
-                <div class="flex flex-col items-center text-center mb-6">
+                <div class="flex flex-col items-start sm:items-center text-left sm:text-center mb-6">
                     <div class="inline-flex items-center mb-4 px-4 py-1.5 bg-gradient-to-r from-[#ef9478]/20 to-[#ef9478]/10 backdrop-blur-md rounded-full border border-[#ef9478]/30 shadow-lg" :class="{ 'opacity-0 translate-y-4': !shown, 'opacity-100 translate-y-0': shown }" style="transition: all 0.6s ease-out;">
                         <span class="inline-block text-sm font-medium tracking-wider uppercase text-[#ef9478] drop-shadow-glow">Exclusive Offerings</span>
                     </div>
@@ -40,7 +40,7 @@
             </div>
             
             <!-- Amenities Cards -->
-            <div class="grid gap-8 mt-16 lg:grid-cols-3" x-data="{ shown: false }" x-intersect.margin.-100px="shown = true">
+            <div class="grid gap-8 mt-7 sm:mt-16 lg:grid-cols-3" x-data="{ shown: false }" x-intersect.margin.-100px="shown = true">
                 <!-- Apartment Amenities Card -->
                 <div :class="{ 'opacity-0 translate-y-8': !shown, 'opacity-100 translate-y-0': shown }" 
                      class="group flex flex-col gap-8 p-8 rounded-2xl overflow-hidden transition-all duration-700 ease-out" 
