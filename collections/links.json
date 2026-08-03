@@ -16,6 +16,11 @@
     },
     {
         "ref": "04",
+        "name": "FAQs",
+        "href": "/faqs"
+    },
+    {
+        "ref": "05",
         "name": "Availability",
         "href": "/availability"
     }
