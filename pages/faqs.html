@@ -1,5 +1,32 @@
 <layout src="main.html" title="Redwood Tree Apartments FAQs | Davis, CA" description="Frequently asked questions about Redwood Tree Apartments at 607 E 8th Street in Davis, CA, including floor plans, amenities, UC Davis access, tours, and availability.">
-    <section class="relative overflow-hidden bg-[#121827] pt-32 pb-20 text-white sm:pt-40 sm:pb-24">
+    <style>
+        .faq-hero {
+            padding-top: 12rem;
+            padding-bottom: 5rem;
+        }
+
+        .faq-overview {
+            background: #121827;
+            color: #fff;
+        }
+
+        .faq-overview-heading {
+            color: #fff !important;
+        }
+
+        .faq-overview-copy {
+            color: rgba(255, 255, 255, 0.76) !important;
+        }
+
+        @media (min-width: 640px) {
+            .faq-hero {
+                padding-top: 14rem;
+                padding-bottom: 6rem;
+            }
+        }
+    </style>
+
+    <section class="faq-hero relative overflow-hidden bg-[#121827] text-white">
         <div class="absolute inset-0 opacity-25">
             <img src="/assets/images/photos/kitchen-01.png" alt="" class="h-full w-full object-cover" />
         </div>
@@ -11,12 +38,12 @@
         </div>
     </section>
 
-    <section class="bg-[#fffaf4] py-16 sm:py-20">
+    <section class="faq-overview py-16 sm:py-20">
         <div class="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-[0.9fr_1.4fr] lg:px-8">
             <aside class="lg:sticky lg:top-28 lg:self-start">
                 <div class="border-l-4 border-[#E16A54] pl-6">
-                    <h2 class="text-2xl font-semibold tracking-tight text-[#121827] sm:text-3xl">Property Overview</h2>
-                    <p class="mt-4 text-base leading-7 text-slate-600">A quick reference for renters comparing apartments near UC Davis and downtown Davis.</p>
+                    <h2 class="faq-overview-heading text-2xl font-semibold tracking-tight sm:text-3xl">Property Overview</h2>
+                    <p class="faq-overview-copy mt-4 text-base leading-7">A quick reference for renters comparing apartments near UC Davis and downtown Davis.</p>
                 </div>
             </aside>
             <div class="grid gap-8">
@@ -28,7 +55,7 @@
                     <div><p class="text-sm font-semibold uppercase tracking-wide text-[#E16A54]">Apartment Types</p><p class="mt-1 text-lg font-medium text-[#121827]">One- and two-bedroom apartments</p></div>
                     <div><p class="text-sm font-semibold uppercase tracking-wide text-[#E16A54]">Management</p><p class="mt-1 text-lg font-medium text-[#121827]">BLR Commercial Real Estate, Inc.</p></div>
                 </div>
-                <p class="text-base leading-8 text-slate-700">Redwood Tree Apartments offers Davis rental housing with access to UC Davis, downtown destinations, public transit, and bike routes. Floor-plan availability, pricing, features, fees, and lease terms may change, so prospective residents should confirm current details with the leasing team.</p>
+                <p class="faq-overview-copy text-base leading-8">Redwood Tree Apartments offers Davis rental housing with access to UC Davis, downtown destinations, public transit, and bike routes. Floor-plan availability, pricing, features, fees, and lease terms may change, so prospective residents should confirm current details with the leasing team.</p>
             </div>
         </div>
     </section>
