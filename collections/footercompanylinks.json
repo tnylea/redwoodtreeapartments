@@ -20,6 +20,11 @@
         "isExternal": false
     },
     {
+        "name": "Sitemap",
+        "href": "/sitemap",
+        "isExternal": false
+    },
+    {
         "name": "Contact",
         "href": "/contact",
         "isExternal": false
