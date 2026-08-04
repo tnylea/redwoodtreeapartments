@@ -1,17 +1,12 @@
 [
     {
-        "name": "Privacy",
+        "name": "Privacy Policy",
         "href": "/privacy",
         "isExternal": false
     },
     {
-        "name": "404",
-        "href": "/404",
-        "isExternal": false
-    },
-    {
-        "name": "Styleguide",
-        "href": "/styleguide",
+        "name": "Terms of Use",
+        "href": "/terms",
         "isExternal": false
     }
 ]
