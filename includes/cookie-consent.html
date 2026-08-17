@@ -1,0 +1,33 @@
+<div class="cookie-consent" data-cookie-consent hidden>
+    <section class="cookie-banner" data-cookie-banner role="dialog" aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-description" hidden>
+        <div class="cookie-banner__copy">
+            <p class="cookie-consent__eyebrow">Your privacy choices</p>
+            <h2 id="cookie-banner-title">Cookies and optional services</h2>
+            <p id="cookie-banner-description">We use necessary browser storage to operate this site. With your permission, we may also load optional services for chat, forms, availability, analytics, or advertising. You can accept, reject, or choose by category. See our <a href="/privacy">Privacy Policy</a>.</p>
+            <p class="cookie-consent__gpc" data-cookie-gpc-message hidden>Your browser’s Global Privacy Control signal is on. Advertising and cross-site sharing remain disabled.</p>
+        </div>
+        <div class="cookie-banner__actions">
+            <button type="button" class="cookie-button cookie-button--primary" data-cookie-action="reject">Reject optional</button>
+            <button type="button" class="cookie-button cookie-button--secondary" data-cookie-action="settings">Choose settings</button>
+            <button type="button" class="cookie-button cookie-button--primary" data-cookie-action="accept">Accept all optional</button>
+        </div>
+    </section>
+
+    <div class="cookie-settings" data-cookie-settings hidden>
+        <div class="cookie-settings__backdrop" data-cookie-action="close" aria-hidden="true"></div>
+        <section class="cookie-settings__panel" role="dialog" aria-modal="true" aria-labelledby="cookie-settings-title" aria-describedby="cookie-settings-description" tabindex="-1">
+            <div class="cookie-settings__header">
+                <div><p class="cookie-consent__eyebrow">Privacy preferences</p><h2 id="cookie-settings-title">Choose what this site may use</h2></div>
+                <button type="button" class="cookie-settings__close" data-cookie-action="close" aria-label="Close privacy settings">&times;</button>
+            </div>
+            <p id="cookie-settings-description">Optional services stay off until you allow them. Your choice is stored in this browser for 180 days and can be changed at any time.</p>
+            <div class="cookie-category"><div><h3>Necessary</h3><p>Required for core site features, security, theme preferences, and remembering your privacy choice.</p></div><span class="cookie-category__status">Always on</span></div>
+            <label class="cookie-category"><span><strong>Functional</strong><small>Loads requested chat, contact forms, and apartment availability from Crisp, Jotform, and AppFolio.</small></span><input type="checkbox" data-cookie-category="functional" aria-label="Allow functional services"></label>
+            <label class="cookie-category"><span><strong>Analytics</strong><small>Allows Google Analytics to measure visits and site performance.</small></span><input type="checkbox" data-cookie-category="analytics" aria-label="Allow analytics"></label>
+            <label class="cookie-category"><span><strong>Advertising</strong><small>Allows advertising or cross-site measurement tools if enabled. This stays off when Global Privacy Control is active.</small></span><input type="checkbox" data-cookie-category="marketing" aria-label="Allow advertising and cross-site measurement"></label>
+            <p class="cookie-consent__gpc" data-cookie-gpc-message hidden>Your browser’s Global Privacy Control signal is on. Advertising and cross-site sharing cannot be enabled here.</p>
+            <div class="cookie-settings__actions"><button type="button" class="cookie-button cookie-button--primary" data-cookie-action="reject">Reject optional</button><button type="button" class="cookie-button cookie-button--primary" data-cookie-action="save">Save choices</button></div>
+        </section>
+    </div>
+    <div class="sr-only" aria-live="polite" data-cookie-status></div>
+</div>

@@ -1,4 +1,4 @@
-<div class="flex flex-col items-start text-center mb-6">
+<div x-data="{ shown: false }" x-intersect.margin.-50px="shown = true" class="flex flex-col items-start text-center mb-6">
     <div class="inline-flex items-center mb-7 px-4 py-1.5 bg-gradient-to-r from-[#ef9478]/20 to-[#ef9478]/10 backdrop-blur-md rounded-full border border-[#ef9478]/30 shadow-lg opacity-100 translate-y-0" :class="{ 'opacity-0 translate-y-4': !shown, 'opacity-100 translate-y-0': shown }" style="transition: all 0.6s ease-out;">
         <span class="inline-block text-sm font-medium tracking-wider uppercase text-[#ef9478] drop-shadow-glow">Writings and Posts</span>
     </div>
