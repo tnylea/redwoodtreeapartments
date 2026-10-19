@@ -10,35 +10,10 @@
                 <div class="inline-flex items-center mb-5 lg:mb-10 px-3 py-1 bg-[#ef9478]/20 backdrop-blur-sm rounded-full border border-[#ef9478]/30">
                     <span class="inline-block text-sm font-medium starting:opacity-0 opacity-100 duration-500 delay-200 ease-in tracking-tighter uppercase text-[#ef9478]">In the center of it all</span>
                 </div>
-            <h1 x-data="{
-                startingAnimation: { opacity: 0, y: 50 },
-                endingAnimation: { opacity: 1, y: 0, stagger: 0.02, duration: 0.7, ease: 'back' },
-                splitCharactersIntoSpans(element) {
-    text = element.textContent;
-    modifiedHTML = [];
-    let dCount = 0;
-    for (var i = 0; i < text.length; i++) {
-        attributes = '';
-        codeBefore = '';
-        if (text[i].toLowerCase() === 'd') {
-            dCount++;
-        }
-        if (dCount === 2 && text[i].toLowerCase() === 'd') {
-            codeBefore = '<br class=\'block lg:hidden\' />';
-        }
-        if(text[i].trim()){ attributes = 'class=\'inline-block\''; }
-        modifiedHTML.push('<span ' + attributes + '>' + text[i] + '</span>' + codeBefore);
-    }
-    element.innerHTML = modifiedHTML.join('');
-},
-
-                animateText() {
-                    $el.classList.remove('invisible');
-                    gsap.fromTo($el.children, this.startingAnimation, this.endingAnimation);
-                }
-            }" x-init="()=> { splitCharactersIntoSpans($el); animateText() }" oncontextmenu="alert('ok')" @animate-start.window="animateText()" class="invisible mb-5 lg:mb-12 max-w-md text-5xl sm:text-6xl font-thin text-left text-white custom-font">
-            Rooted in Davis. Make Your Next Move Feel Like Home
-        </h1>
+            <h1 class="mb-5 lg:mb-12 text-left text-white">
+                <span class="block text-5xl sm:text-6xl font-thin custom-font">Rooted in Davis.</span>
+                <span class="block mt-2 whitespace-nowrap font-serif italic font-normal text-[clamp(0.95rem,4.2vw,1.75rem)] tracking-wide">Make Your Next Move Feel Like Home</span>
+            </h1>
         <p class="text-lg text-white max-w-xsm mb-5 lg:mb-10 starting:opacity-0 opacity-100 duration-500 delay-200">Live steps from campus, coffee, and everything Davis has to offer.</p>
         <div class="opacity-100 duration-500 delay-200 starting:-translate-y-2 starting:opacity-0">
             <div class="flex flex-wrap sm:flex-row flex-col -m-2 mb-5 lg:mb-12">
